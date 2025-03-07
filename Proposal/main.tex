@@ -1,0 +1,97 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{naaclhlt2019}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+\usepackage{url}
+
+\aclfinalcopy 
+
+\title{A Reasoning-Based Evaluation Framework for Knowledge Graph-Augmented LLMs}
+
+\author{First Author \\
+  {\tt email@domain} \\\And
+  Second Author \\
+  {\tt email@domain} \\\And
+  Third Author \\
+  {\tt email@domain} \\\And
+  Fourth Author \\
+  {\tt email@domain} \\}
+  
+% \setlength\textwidth{16.0cm}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Tell us what problem you're going to work on. Provide some motivation for your idea: why is it interesting? Does it have any practical significance? 
+
+Some general guidelines for this proposal document: at least \textbf{3 pages}, \textbf{due Mar 7}. Please use this LaTeX template to write your proposal.
+
+\section{Related work}
+
+Check out papers at ACL / EMNLP / NAACL / TACL (archived in the ACL anthology \url{https://www.aclweb.org/anthology}). Make sure to properly cite them. You can cite a paper parenthetically like this~\cite{andrew2007scalable} or use the citation as a proper noun, as in ``\newcite{borsch2011} show that...'' If you're not familiar with LaTeX, you'll have to add entries to \emph{yourbib.bib} to get them to show up when you cite them. 
+Have others worked on this idea or related ideas? Clearly describe the some of these approaches, along with their pros and cons. Connect your project to those papers. You need to have \textbf{at least five citations} to related papers here. 
+
+\section{Your approach}
+We have identified a need to understand the effectiveness of introducing knowledge graphs in order to mitigate hallucinations, specifically in terms of reasoning. We propose an evaluation framework to address this. The investigations will be restricted to one domain - we choose biomedical question answering - because generic knowledge graphs are known to be sparse and incomplete as they attempt to encapsulate broad knowledge across all domains [NEED CITATION HERE: KG generated from wikipedia is incomplete/sparse…], and thus are not well-suited for evaluating reasoning capabilities. We aim to overcome this problem by narrowing the scope of our experiments to a specific domain.
+
+\paragraph{What baseline algorithms will you use?}
+A baseline algorithm is one that is very simple and trivial to implement. For example, ``predict the most common class,'' or ``tag all capitalized words as names,'' or ``select the first sentence in the document''. Sometimes it can be difficult to get a fancy algorithm to beat a baseline. Always ask yourself, ``What's the simplest experiment I could do to (in)validate my hypothesis?'' Talented researchers have a knack for coming up with simple baselines. 
+
+\subsection{Schedule}
+Divide your project into subtasks and estimate how much time each will take. If your group plans to divide subtasks amongst itself, also write who will be responsible for each milestone. If you plan to work on everything together, please say so here. Definitely budget some time for writing the final report, as well as performing an in-depth analysis of any models you build and/or data you collect. Sample schedule below:
+\begin{enumerate}
+    \item Acquire and pre-process data (2 weeks)
+    \item Build models for task (5 weeks)
+    \item Analyze the output of the model, do an error analysis (2 weeks)
+    \item Work on final reports (1 weeks)
+\end{enumerate}
+
+Note that for projects involving data collection or model analysis, Step 1/3 could be much longer and Step 2 much shorter! We welcome all types of proposals and projects, as long as there is an NLP research contribution.
+
+\section{Data}
+
+What text data do you plan to use in your project? Where will you get it from? Will you be annotating text yourselves? Convince us that it is available for you, and that you can easily get it, and that it is appropriate for the task and research questions you care about.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figs/sentence.png}
+    \caption{Please feel free to include figures! If you want your figure to span both columns, use \emph{figure*} instead of \emph{figure}.}
+    \label{fig:example}
+\end{figure}
+
+\section{Tools}
+What existing libraries or toolkits are you going to use? Some questions to think about: will you be doing any preprocessing of your data such as tokenization or parsing? Will you be training logistic regression models? Will you be using deep learning libraries (if not, you need to justify why)? Will you need to use any services for GPUs?\footnote{As we said in class, we strongly suggest \url{https://colab.research.google.com}!} Do you need to use crowdsourcing?
+
+\section{AI Disclosure}
+\begin{itemize}
+    \item Did you use any AI assistance to complete this proposal? If so, please also specify what AI you used.
+    \begin{itemize}
+        \item your response here
+    \end{itemize}
+\end{itemize}
+
+\noindent\textit{If you answered yes to the above question, please complete the following as well:}
+
+\begin{itemize}
+    \item  If you used a large language model to assist you, please paste *all* of the prompts that you used below. Add a separate bullet for each prompt, and specify which part of the proposal is associated with which prompt.
+    \begin{itemize}
+        \item your response here
+    \end{itemize}
+    \item \textbf{Free response:} For each section or paragraph for which you used assistance, describe your overall experience with the AI. How helpful was it? Did it just directly give you a good output, or did you have to edit it? Was its output ever obviously wrong or irrelevant? Did you use it to generate new text, check your own ideas, or rewrite text?
+    \begin{itemize}
+        \item your response here
+    \end{itemize}
+\end{itemize}
+
+
+\bibliographystyle{apalike}
+\footnotesize
+\bibliography{yourbib}
+
+
+\end{document}
