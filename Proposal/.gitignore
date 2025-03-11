@@ -24,7 +24,7 @@
 *.tmp
 
 # Generated PDFs
-*.pdf
+# *.pdf
 
 # VS Code LaTeX Workshop extensions
 *.acn

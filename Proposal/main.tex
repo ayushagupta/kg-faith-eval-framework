@@ -11,67 +11,119 @@
 
 \title{A Reasoning-Based Evaluation Framework for Knowledge Graph-Augmented LLMs}
 
-\author{First Author \\
-  {\tt email@domain} \\\And
-  Second Author \\
-  {\tt email@domain} \\\And
-  Third Author \\
-  {\tt email@domain} \\\And
-  Fourth Author \\
-  {\tt email@domain} \\}
+%\title{Ensuring Reliable Reasoning in LLMs: An Evaluation Framework for Knowledge Graph-Augmented LLM}
+
+\author{Ativ Joshi \\
+  {\tt atjoshi@umass.edu} \\\And
+  Isheeta Sinha \\
+  {\tt issinha@umass.edu} \\\AND
+  Sravanthi Machcha \\
+  {\tt smachcha@umass.edu} \\\And
+  Ayush Gupta \\
+  {\tt ayushanilgup@umass.edu} \\}
   
+
 % \setlength\textwidth{16.0cm}
-\date{}
+
 
 \begin{document}
 \maketitle
 
 \section{Introduction}
-Tell us what problem you're going to work on. Provide some motivation for your idea: why is it interesting? Does it have any practical significance? 
+Knowledge graphs are increasingly becoming popular to reduce hallucinations in LLMs as they are proven to be effective. However, the underlying reasoning that the LLM uses to arrive at the correct conclusions is still questionable. Techniques such as Chain-of-Thought (CoT) prompting \cite{wei2023chainofthoughtpromptingelicitsreasoning} have been employed to reveal the reasoning capabilities. Our work aims to build an evaluation framework to determine how correctly the LLMs utilize the knowledge graph using the Chain-of-Thought reasoning which reflects how the model arrives at the final answer, and introduce a metric that reflects the faithfulness of the reasoning process to the input information.\\
 
-Some general guidelines for this proposal document: at least \textbf{3 pages}, \textbf{due Mar 7}. Please use this LaTeX template to write your proposal.
+\noindent As the usage of LLMs in sensitive domains like medicine and biomedical research increases, the reliability and faithfulness of reasoning in LLMs becomes crucial for ensuring accuracy, trustworthiness, and ethical integrity \cite{agarwal2024faithfulnessvsplausibilityunreliability}. It enhances user confidence and mitigates risks of misinformation or biased outputs. Reliable reasoning is essential for maintaining coherence and accuracy in complex problem-solving scenarios.\\
+
+\noindent \textbf{Limitations/Assumptions}:
+The knowledge graph can be incomplete. To address this, we will use only questions from the dataset in which all entities involved are present in the knowledge graph. Our aim to is to study the effectiveness in the ideal complete knowledge case - in real world settings, getting a complete knowledge graph is a separate challenge by itself, our work does not attempt to solve this problem.
+
 
 \section{Related work}
 
-Check out papers at ACL / EMNLP / NAACL / TACL (archived in the ACL anthology \url{https://www.aclweb.org/anthology}). Make sure to properly cite them. You can cite a paper parenthetically like this~\cite{andrew2007scalable} or use the citation as a proper noun, as in ``\newcite{borsch2011} show that...'' If you're not familiar with LaTeX, you'll have to add entries to \emph{yourbib.bib} to get them to show up when you cite them. 
-Have others worked on this idea or related ideas? Clearly describe the some of these approaches, along with their pros and cons. Connect your project to those papers. You need to have \textbf{at least five citations} to related papers here. 
+\subsection{Background on Knowledge Graph} A knowledge graph (KG) is a structured representation of facts, consisting of entities, relationships, and semantic descriptions \cite{ji2021survey}. Entities represent objects in the real world or abstract concepts, and relationships define the connections between these entities. These relationships, along with entities, are often captured in the form of triples, following the \texttt{<subject, predicate, object>} format. In a more general sense, these are usually shown as \texttt{<entity1, relation, entity2>} triples. For example, a triple like \texttt{<Albert Einstein, WinnerOf, Nobel Prize>} represents a fact about Albert Einstein. Knowledge graphs can be visualized as directed graphs, where nodes represent entities and edges denote relationships. They are widely used for knowledge representation and reasoning, enabling applications in search engines, recommendation systems, and question-answering tasks. 
 
-\section{Your approach}
-We have identified a need to understand the effectiveness of introducing knowledge graphs in order to mitigate hallucinations, specifically in terms of reasoning. We propose an evaluation framework to address this. The investigations will be restricted to one domain - we choose biomedical question answering - because generic knowledge graphs are known to be sparse and incomplete as they attempt to encapsulate broad knowledge across all domains [NEED CITATION HERE: KG generated from wikipedia is incomplete/sparse…], and thus are not well-suited for evaluating reasoning capabilities. We aim to overcome this problem by narrowing the scope of our experiments to a specific domain.
+\subsection{KG Augmented LLM} There are several works that show how knowledge graph-augmented LLMs have improved performance \cite{agrawal2023can}. There are various stages of the pipeline where the knowledge graph can be integrated to enhance LLMs. One of the ways is to integrate it into a prompt. Researchers integrate KGs for structured symbolic knowledge, primarily incorporating them at the input level to enhance contextual understanding \cite{agrawal2023can}. \cite{soman2024biomedical} is an example of this work, where integrating RAG at prompt level has reduced hallucination in the domain of BioNLP with the given prompt. Despite the efforts, the issue of hallucination may continue to persist in the realm of KG integrated LLMs for the foreseeable future \cite{pan2024unifying}. The actual reasoning behind the correctness of the answer is not evident, nor is it evident how correctly the KG was used. \\
 
-\paragraph{What baseline algorithms will you use?}
-A baseline algorithm is one that is very simple and trivial to implement. For example, ``predict the most common class,'' or ``tag all capitalized words as names,'' or ``select the first sentence in the document''. Sometimes it can be difficult to get a fancy algorithm to beat a baseline. Always ask yourself, ``What's the simplest experiment I could do to (in)validate my hypothesis?'' Talented researchers have a knack for coming up with simple baselines. 
+\noindent There is also work done to evaluate the effectiveness of the knowledge graph \cite{jiang2024efficient}, which uses the output of the LLM to generate a graph, and compare it with the original graph. However, \cite{jiang2024efficient} they don’t explain/extract any reasoning metrics to evaluate the faithfulness. Instead, they feed the generated graph back to the model for fine-tuning model parameters. 
 
-\subsection{Schedule}
-Divide your project into subtasks and estimate how much time each will take. If your group plans to divide subtasks amongst itself, also write who will be responsible for each milestone. If you plan to work on everything together, please say so here. Definitely budget some time for writing the final report, as well as performing an in-depth analysis of any models you build and/or data you collect. Sample schedule below:
+\subsection{LLM Reasoning} Many studies have proposed prompt based solutions to harness the reasoning ability of LLMs to handle complex tasks. However, the problem of hallucinations and lack of knowledge affect the faithfulness of LLMs’ reasoning \cite{luo2023reasoning}. Providing LLMs with relevant information from KG should mitigate hallucinations caused because of lack of information. However, it still does not address hallucinations due to limitations in reasoning capabilities. 
+Chain-of-Thought (CoT) prompting \cite{wei2023chainofthoughtpromptingelicitsreasoning} has become a popular way to interact with LLMs and understand its workings. It is important to note that validating the actual computations performed by the model against what the CoT presents is out of scope of this paper. Therefore, we focus on faithfulness of CoT reasoning to the input knowledge provided.\\
+
+\noindent Faithfulness is a crucial attribute of large language models (LLMs), particularly in high-stakes domains such as healthcare and law, where the reliability of model outputs is critical \cite{agarwal2024faithfulnessvsplausibilityunreliability}. However, there is no universally agreed-upon definition or accepted metric for faithfulness. For the purposes of our work, we adopt the definition of faithfulness as an explanation that accurately reflects the reasoning process behind the model's prediction \cite{lyu2024faithfulmodelexplanationnlp}\\
+
+\noindent In contrast to faithfulness, plausibility refers to how convincing the
+interpretation is to humans \cite{jacovi2020towards}. Current LLMs inherently overemphasize plausibility over faithfulness \cite{agarwal2024faithfulnessvsplausibilityunreliability}. While LLMs can produce coherent and logical explanations which enhance their performance on complex tasks and decision-making processes through CoT, recent study \cite{si2024largelanguagemodelshelp} suggests that users may over-rely on these CoT explanations, even when they are incorrect. This over-reliance is a critical risk associated with CoT reasoning, and it becomes particularly problematic when the LLM’s reasoning seems highly plausible but is based on an incorrect line of reasoning.
+
+\subsection{Faithfulness metrics} 
+% As there is no single definition of faithfulness and each definition targets different aspects, there is not a single accepted metric. 
+There is no unique definition of faithfulness. There are many metrics used to capture different aspects of faithfulness. There is a need for developing reliable metrics to characterize the faithfulness of explanations \cite{agarwal2024faithfulnessvsplausibilityunreliability}.
+There are automated frameworks like ROUGE, BLEU, BERTScore, however they assess aspects such as fluency, semantic and lexicographic similarity \cite{malin2024review}. Firstly, we do not want to make comparisons based on the language, as there is a chance of ambiguity. Secondly, none of these methods target the faithfulness from the perspective of reasoning-chain and effectiveness knowledge graph utilization. Human evaluation is also a common method in evaluating reasoning effectiveness, however, not only is it resource-intensive and time-consuming, but it is also highly prone to subjective variation \cite{malin2024review}. Hence, it is not a desirable approach \cite{jacovi2020towards}. Our work focuses more on developing a metric that captures the reasoning capabilities, regardless of how plausible the answer may seem. Other works, such as \cite{lyu2023faithfulchainofthoughtreasoning}, focus on evaluating faithfulness based on final answer accuracy, with an emphasis on improving the faithfulness of CoT reasoning generated by LLMs. Our work, however, centers on developing a metric that specifically quantifies the faithfulness of the reasoning process to the input information.
+
+
+
+\section{Approach}
+We have identified a need to understand the effectiveness of introducing knowledge graphs in order to mitigate hallucinations, specifically in terms of reasoning. We propose an evaluation framework to address this. The investigations will be restricted to one domain - we choose biomedical question answering - because generic knowledge graphs are known to be sparse and incomplete as they attempt to encapsulate broad knowledge across all domains \cite{demir2023litcqdmultihopreasoningincomplete, waagmeester2020wikidata} and thus are not well-suited for evaluating reasoning capabilities. We aim to overcome this problem by narrowing the scope of our experiments to a specific domain.
+
+\subsection{Preprocess the QA dataset}
+The two main datasets we will be using is SPOKE \cite{10.1093/bioinformatics/btad080} which is the knowledge graph and then the BiomixQA \cite{soman2024biomedicalknowledgegraphoptimizedprompt} question answering (QA) dataset. In order to ensure that we don’t evaluate the reasoning on a question that doesn’t have the relevant information in the knowledge graph, we need to preprocess the QA dataset. This is done by generating entities from all the questions and using only questions where all the entities are present in the KG. The other questions are discarded. We plan to use a method similar to the one used in KG-RAG, i.e, utilize a  system prompt to extract entities from the input questions and perform entity matching to align the extracted entities with their corresponding concept names in the KG.  Entity matching is achieved by precomputing embeddings for all nodes in SPOKE using a sentence transformer model. 
+
+\subsection{Integrate domain knowledge graph into LLM}
+As discussed in the previous section, there are multiple ways to augment knowledge graphs into LLMs at different stages. For our biomedical domain, we will be using the already generated knowledge graph SPOKE, which is accessible through APIs. We will integrate this knowledge in the LLM at the inference stage. Since the full knowledge graph may not be useful for a specific question, a relevant subgraph will be extracted. We use the terms input KG and sub-KG interchangeably to refer to the extracted relevant subgraph. This process involves identifying the essential entities in the question and then selecting nodes within an empirically determined diameter from that central node. The subgraph is then converted to natural language which is then combined with the question prompt, to produce an enriched prompt. This enriched prompt is combined with Chain-of-Thought (CoT) prompt template and fed into the model to produce an answer along with the reasoning behind it.
+
+
+\label{subsection:KG construction}
+\subsection{Construct a knowledge graph from reasoning}
+The CoT reasoning in the output will contain relations between entities as understood by the LLM. In order to verify the factuality of these claims in a structured manner, this reasoning text is converted into a knowledge graph, where the nodes represent the entities in the text and the edges represent the relations between the entities. The conversion process is carried out by the use of a refined prompt which strictly entails all the steps the LLM should take in creating the knowledge graph along with relevant examples for reference.
+
+\subsection{Calculate the evaluation metric}
+The output knowledge graph can be understood intuitively as a list of triples (also known as links) in the following format: \texttt{<entity1, relation, entity2>}. The corresponding triples should exist in the input KG for the LLM reasoning to be coherent. If we observe incorrect links or fabricated links in the CoT KG, it shows that the LLM has hallucinated. The first step is searching the relevant link in the input KG for each link in the output KG. This is done by converting the entities and relations into embeddings using the same model which was used in \ref{subsection:KG construction} and finding the edge which has the same two entities. Once we have both the links, we compute the cosine similarity for each pair of input-output links in the output KG, which can be interpreted as the coherence score for that link. The final score is calculated by averaging over the coherence scores for all links in the output KG. If any link is found to have a coherence score below a certain threshold, the final score is reported as zero for that query. This follows the assumption that a wrong logic in an intermediate step falsifies all subsequent logic. We can further provide a score for the entire question-answer dataset by averaging over all the queries in the dataset.
+
+\section{Schedule}
+% Divide your project into subtasks and estimate how much time each will take. If your group plans to divide subtasks amongst itself, also write who will be responsible for each milestone. If you plan to work on everything together, please say so here. Definitely budget some time for writing the final report, as well as performing an in-depth analysis of any models you build and/or data you collect. Sample schedule below:
+
+The following subtasks are identified for project completion, with the expected time required to complete. We plan on working on all the subtasks together. The whole project spans till the end of the Spring 2025 semester. It is in total taking 7 weeks, and buffer of 2 weeks is added for unforeseen challenges and pivots. 
 \begin{enumerate}
-    \item Acquire and pre-process data (2 weeks)
-    \item Build models for task (5 weeks)
-    \item Analyze the output of the model, do an error analysis (2 weeks)
-    \item Work on final reports (1 weeks)
+    \item Implement algorithm to pre-process QA dataset - 1 week
+    \item Integrate SPOKE into LLMs - 2 weeks
+    \begin{enumerate}
+        \item Investigate use of SPOKE API - 0.5 week
+        \item Implement algorithm to extract subgraph - 1 week
+        \item Integrate and develop question with CoT- 0.5 week
+    \end{enumerate}
+    \item Extract knowledge graph from CoT output - 1 week
+    \item Experiment with different types of KG generation - 0.5 week
+    \item Implement algorithm for faithfulness metric - 1 week
+    \item Test and validate the metrics - 0.5 week
+    \item Work on final reports - 1 week
 \end{enumerate}
 
-Note that for projects involving data collection or model analysis, Step 1/3 could be much longer and Step 2 much shorter! We welcome all types of proposals and projects, as long as there is an NLP research contribution.
+
+
+
+
+% Note that for projects involving data collection or model analysis, Step 1/3 could be much longer and Step 2 much shorter! We welcome all types of proposals and projects, as long as there is an NLP research contribution.
 
 \section{Data}
+The input knowledge graph that we are using for augmenting data into the LLM is SPOKE which combines over 40 biomedical knowledge sources, containing over 40 million nodes for diseases, genes, symptoms and many more. The question-answering dataset is BioMixQA \cite{soman2024biomedicalknowledgegraphoptimizedprompt} which contains multiple choice questions. Each question contains 5 options and one correct answer.
 
-What text data do you plan to use in your project? Where will you get it from? Will you be annotating text yourselves? Convince us that it is available for you, and that you can easily get it, and that it is appropriate for the task and research questions you care about.
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/sentence.png}
-    \caption{Please feel free to include figures! If you want your figure to span both columns, use \emph{figure*} instead of \emph{figure}.}
-    \label{fig:example}
-\end{figure}
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{figs/sentence.png}
+%     \caption{Please feel free to include figures! If you want your figure to span both columns, use \emph{figure*} instead of \emph{figure}.}
+%     \label{fig:example}
+% \end{figure}
 
 \section{Tools}
-What existing libraries or toolkits are you going to use? Some questions to think about: will you be doing any preprocessing of your data such as tokenization or parsing? Will you be training logistic regression models? Will you be using deep learning libraries (if not, you need to justify why)? Will you need to use any services for GPUs?\footnote{As we said in class, we strongly suggest \url{https://colab.research.google.com}!} Do you need to use crowdsourcing?
+
+We will primarily be using standard deep learning libraries like PyTorch and existing pre-trained models from Huggingface. Google Colab Pro would be sufficient for our GPU usage. If we need more compute, we plan to use Unity.
+
+% What existing libraries or toolkits are you going to use? Some questions to think about: will you be doing any preprocessing of your data such as tokenization or parsing? Will you be training logistic regression models? Will you be using deep learning libraries (if not, you need to justify why)? Will you need to use any services for GPUs?\footnote{As we said in class, we strongly suggest \url{https://colab.research.google.com}!} Do you need to use crowdsourcing?
 
 \section{AI Disclosure}
 \begin{itemize}
     \item Did you use any AI assistance to complete this proposal? If so, please also specify what AI you used.
     \begin{itemize}
-        \item your response here
+        \item We primarily used Deep Research mode on Perplexity (which seems to be using Deepseek R1)
     \end{itemize}
 \end{itemize}
 
@@ -79,19 +131,25 @@ What existing libraries or toolkits are you going to use? Some questions to thin
 
 \begin{itemize}
     \item  If you used a large language model to assist you, please paste *all* of the prompts that you used below. Add a separate bullet for each prompt, and specify which part of the proposal is associated with which prompt.
+
+    We mainly used LLMs to brainstorm the ideas and find references for background readings. 
     \begin{itemize}
-        \item your response here
+        \item Here's an idea to verify that the output of an LLM is factually correct. First, we take an LLM and augment it with a knowledge graph. We pass the LLM a particular query and the LLM generates an output along with a chain of thought which represents the LLM's internal reasoning. We take the chain of thought output and convert it into a list of facts. Then we cross check these basic facts individually with the knowledge graph. Is this a feasible method? Has this been done before? Can you suggest any better ideas.
+        \item Can you suggest some project ideas along this direction?
+        \item Suggest some research project with core technical contributions, not just the ones where existing libraries are used to build a tool.
+        \item How important is it that the reasoning of LLM is reliable?
+        \item How sparse is the wikidata knowledge graph?
     \end{itemize}
     \item \textbf{Free response:} For each section or paragraph for which you used assistance, describe your overall experience with the AI. How helpful was it? Did it just directly give you a good output, or did you have to edit it? Was its output ever obviously wrong or irrelevant? Did you use it to generate new text, check your own ideas, or rewrite text?
     \begin{itemize}
-        \item your response here
+        \item The deep research functionality was very useful for finding out relevant papers and cross verifying our rough ideas. 
     \end{itemize}
 \end{itemize}
 
-
+\newpage
 \bibliographystyle{apalike}
 \footnotesize
 \bibliography{yourbib}
-
+% \nocite{*}
 
 \end{document}
