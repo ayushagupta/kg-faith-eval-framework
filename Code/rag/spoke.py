@@ -2,14 +2,29 @@ import requests
 from config.config import config
 import ast
 import pandas as pd
+import logging
+import json
+
+spoke_api_logger = logging.getLogger("spoke_api_logger")
+spoke_api_logger.setLevel(logging.INFO)
+
+if not spoke_api_logger.handlers:
+    file_handler = logging.FileHandler("logs/spoke_api.log")
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    file_handler.setFormatter(formatter)
+    spoke_api_logger.addHandler(file_handler)
 
 
 def get_spoke_api_response(base_url, end_point, params=None):
     url = base_url + end_point
-    if params:
-        return requests.get(url=url, params=params)
-    else:
-        return requests.get(url=url)
+    try:
+        response = requests.get(url=url, params=params) if params else requests.get(url=url)
+        response.raise_for_status()
+        log_api_call(spoke_api_logger, url, params, response=response)
+        return response
+    except requests.exceptions.RequestException as e:
+        log_api_call(spoke_api_logger, url, params, error=str(e))
+        raise
 
 
 def get_data_types_from_spoke_api():
@@ -145,3 +160,20 @@ def generate_context_and_merged_data(nodes_df, edges_df, node_value, node_contex
     )
 
     return combined_context, final_merged_df
+
+
+def log_api_call(logger, url, params=None, response=None, error=None):
+    log_data = {
+        "url": url,
+        "params": params if params else {},
+    }
+
+    if error:
+        log_data["status"] = "failure"
+        log_data["error"] = error
+        logger.error(json.dumps(log_data, indent=4))
+    else:
+        log_data["status"] = "success"
+        log_data["status_code"] = response.status_code
+        log_data["content_length"] = len(response.content)
+        logger.info(json.dumps(log_data, indent=4))

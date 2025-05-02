@@ -1,11 +1,15 @@
 import json
 import logging
 
-logging.basicConfig(
-    filename="logs/schema_loader.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+schema_loader_logger = logging.getLogger("schema_loader_logger")
+schema_loader_logger.setLevel(logging.INFO)
+
+if not schema_loader_logger.handlers:
+    file_handler = logging.FileHandler("logs/schema_loader.log")
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+    file_handler.setFormatter(formatter)
+    schema_loader_logger.addHandler(file_handler)
+
 
 def load_task_schema(task: str):
     try:
@@ -15,17 +19,18 @@ def load_task_schema(task: str):
         if task in task_schemas:
             return task_schemas[task]
         else:
-            logging.error(f"Schema for task '{task}' not found.")
+            schema_loader_logger.error(f"Schema for task '{task}' not found.")
             return None
         
     except FileNotFoundError:
-        logging.error("Schema file 'task_schemas.json' not found.")
+        schema_loader_logger.error("Schema file 'task_schemas.json' not found.")
         return None
     
     except json.JSONDecodeError:
-        logging.error("Error decoding the JSON schema file.")
+        schema_loader_logger.error("Error decoding the JSON schema file.")
         return None
     
     except Exception as e:
-        logging.error(f"Unexpected error while loading task schema: {e}")
+        schema_loader_logger.error(f"Unexpected error while loading task schema: {e}")
         return None
+    
