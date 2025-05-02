@@ -1,11 +1,10 @@
 from rag.utils import *
 from config.config import config
-from rag.spoke import get_context_from_spoke_api
-
 
 class RAG:
-    def __init__(self, openai_client, context_volume, context_similarity_percentile_threshold, context_similarity_min_threshold):
+    def __init__(self, openai_client, spoke_api_client, context_volume, context_similarity_percentile_threshold, context_similarity_min_threshold):
         self.openai_client = openai_client
+        self.spoke_api_client = spoke_api_client
         self.embedding_function = get_embedding_function(model_name=config.EMBEDDING_MODEL_FOR_CONTEXT_RETRIEVAL)
         self.vector_store = get_vector_store(vector_db_path=config.VECTOR_DB_PATH, sentence_embedding_model=config.VECTOR_DB_SENTENCE_EMBEDDING_MODEL)
         self.context_volume = context_volume
@@ -31,7 +30,7 @@ class RAG:
             max_number_of_high_similarity_context_per_node = int(self.context_volume/k)
 
         for node in nodes_found:
-            node_context, context_table = get_context_from_spoke_api(node)
+            node_context, context_table = self.spoke_api_client.get_context(node)
 
             relevant_context = extract_relevant_context(
                 node_context=node_context,
