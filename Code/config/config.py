@@ -18,5 +18,11 @@ class Config:
 		"VECTOR_DB_SENTENCE_EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
 	)
 
+	# OpenAI config
+	OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+	MODEL_NAME = os.getenv("MODEL_NAME", "gpt-4o-mini")
+	TEMPERATURE = float(os.getenv("TEMPERATURE", 0))
+	MAX_TOKENS = int(os.getenv("MAX_TOKENS", 1000))
+
 
 config = Config()
