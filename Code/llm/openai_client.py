@@ -16,6 +16,14 @@ if not openai_logger.handlers:
 class OpenAIClient:
 	def __init__(self):
 		self.client = OpenAI(api_key=config.OPENAI_API_KEY)
+		self.logger = logging.getLogger("openai_logger")
+		self.logger.setLevel(logging.INFO)
+
+		if not self.logger.handlers:
+			file_handler = logging.FileHandler("logs/llm_responses.log")
+			formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+			file_handler.setFormatter(formatter)
+			openai_logger.addHandler(file_handler)
 
 
 	def generate_response(self, instructions, input_text):
@@ -26,12 +34,12 @@ class OpenAIClient:
 				input = input_text
 			)
 
-			self.log_response(instructions, input_text, response)
+			self._log_response(instructions, input_text, response)
 
 			return response.output_text
 		
 		except Exception as e:
-			openai_logger.error(f"OpenAI API call failed: {e}")
+			self.logger.error(f"OpenAI API call failed: {e}")
 			return "Error generating response."
 		
 			
@@ -55,21 +63,21 @@ class OpenAIClient:
 			response_text = response.output_text
 			response_data = json.loads(response_text)
 
-			self.log_response(instructions, input_text, response)
+			self._log_response(instructions, input_text, response)
 
 			return response_data
 
 		except Exception as e:
-			openai_logger.error(f"OpenAI API call failed: {e}")
+			self.logger.error(f"OpenAI API call failed: {e}")
 			return "Error generating response."
 		
 	
-	def log_response(self, instructions, input_text, response):
+	def _log_response(self, instructions, input_text, response):
 		log_data = {
 			"model": config.MODEL_NAME,
 			"instructions": instructions,
 			"input_text": input_text,
 			"response": response.output_text
 		}
-		openai_logger.info(json.dumps(log_data, indent=4))
+		self.logger.info(json.dumps(log_data, indent=4))
 		
