@@ -28,6 +28,12 @@ class Config:
 	EMBEDDING_MODEL_FOR_CONTEXT_RETRIEVAL = os.getenv(
         "EMBEDDING_MODEL_FOR_CONTEXT_RETRIEVAL", "pritamdeka/S-PubMedBert-MS-MARCO"
     )
+	EMBEDDING_MODEL_FOR_NODE_RETRIEVAL = os.getenv(
+        "EMBEDDING_MODEL_FOR_NODE_RETRIEVAL", "sentence-transformers/all-MiniLM-L6-v2"
+    )
+	CONTEXT_VOLUME = int(os.getenv("CONTEXT_VOLUME", 150))
+	QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD = int(os.getenv("QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD", 75))
+	QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY = float(os.getenv("QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY", 0.5))
 
 	# SPOKE API config
 	BASE_URL = os.getenv("BASE_URL", "https://spoke.rbvi.ucsf.edu")
@@ -40,5 +46,6 @@ class Config:
 	CUTOFF_ACTEG_LEVEL = os.getenv("CUTOFF_ACTEG_LEVEL", "Low,Medium,High").split(',')
 	CUTOFF_DPL_AVERAGE_PREVALENCE = float(os.getenv("CUTOFF_DPL_AVERAGE_PREVALENCE", 0.001))
 	DEPTH = int(os.getenv("DEPTH", 1))
+
 
 config = Config()
