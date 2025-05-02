@@ -3,16 +3,6 @@ from config.config import config
 import logging
 import json
 
-openai_logger = logging.getLogger("openai_logger")
-openai_logger.setLevel(logging.INFO)
-
-if not openai_logger.handlers:
-    file_handler = logging.FileHandler("logs/llm_responses.log")
-    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    file_handler.setFormatter(formatter)
-    openai_logger.addHandler(file_handler)
-
-
 class OpenAIClient:
 	def __init__(self):
 		self.client = OpenAI(api_key=config.OPENAI_API_KEY)
@@ -23,7 +13,7 @@ class OpenAIClient:
 			file_handler = logging.FileHandler("logs/llm_responses.log")
 			formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 			file_handler.setFormatter(formatter)
-			openai_logger.addHandler(file_handler)
+			self.logger.addHandler(file_handler)
 
 
 	def generate_response(self, instructions, input_text):
