@@ -25,4 +25,9 @@ class Config:
 	MAX_TOKENS = int(os.getenv("MAX_TOKENS", 1000))
 
 
+	# RAG config
+	EMBEDDING_MODEL_FOR_CONTEXT_RETRIEVAL = os.getenv(
+        "EMBEDDING_MODEL_FOR_CONTEXT_RETRIEVAL", "pritamdeka/S-PubMedBert-MS-MARCO"
+    )
+
 config = Config()
