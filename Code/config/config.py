@@ -31,5 +31,14 @@ class Config:
 
 	# SPOKE API config
 	BASE_URL = os.getenv("BASE_URL", "https://spoke.rbvi.ucsf.edu")
+	CUTOFF_COMPOUND_MAX_PHASE  = int(os.getenv("CUTOFF_COMPOUND_MAX_PHASE ", 3))
+	CUTOFF_PROTEIN_SOURCE = os.getenv("CUTOFF_PROTEIN_SOURCE", "SwissProt").split(',')
+	CUTOFF_DAG_DISEASE_SOURCES = os.getenv("CUTOFF_DAG_DISEASES_SOURCES", "knowledge,experiments").split(',')
+	CUTOFF_DAG_TERMINATING = int(os.getenv("CUTOFF_DAG_TEXTMINING", 3))
+	CUTOFF_CTD_PHASE = int(os.getenv("CUTOFF_CTD_PHASE", 3))
+	CUTOFF_PIP_CONFIDENCE = float(os.getenv("CUTOFF_PIP_CONFIDENCE", 0.7))
+	CUTOFF_ACTEG_LEVEL = os.getenv("CUTOFF_ACTEG_LEVEL", "Low,Medium,High").split(',')
+	CUTOFF_DPL_AVERAGE_PREVALENCE = float(os.getenv("CUTOFF_DPL_AVERAGE_PREVALENCE", 0.001))
+	DEPTH = int(os.getenv("DEPTH", 1))
 
 config = Config()
