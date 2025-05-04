@@ -35,5 +35,25 @@
                 "additionalProperties": false
             }
         }
+    },
+    "mcq_question_cot": {
+        "format": {
+            "type": "json_schema",
+            "name": "answer",
+            "strict": true,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "answer": {
+                        "type": "string"
+                    },
+                    "reasoning": {
+                        "type": "string"
+                    }
+                },
+                "required": ["answer", "reasoning"],
+                "additionalProperties": false
+            }
+        }
     }
 }
