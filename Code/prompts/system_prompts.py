@@ -15,13 +15,13 @@ SYSTEM_PROMPTS  = {
     """,
     
     "mcq_question_cot_1":
-    """You are an expert biomedical researcher. Based on that Context provided, provide your answer in the following JSON format for the Question asked. The field "answer" is a the correct answer.
+    """You are an expert biomedical researcher. Based on that Context provided, provide your answer in the following JSON format for the Question asked. The field "answer" is the correct answer.
     The field "reasoning" contains 4-5 sentences explaining step-by-step reasoning of how the answer was derived and why the other options are not suitable answers.
     "answer": <correct answer>, "reasoning": <reasoning>
     """,
     
     "mcq_question_cot_2":
-    """You are an expert biomedical researcher. Based on that Context provided, provide your answer in the following JSON format for the Question asked. The field "answer" is a the correct answer.
+    """You are an expert biomedical researcher. Based on that Context provided, provide your answer in the following JSON format for the Question asked. The field "answer" is the correct answer.
     The field "reasoning" contains sentences explaining step-by-step reasoning of how the answer was derived. Here is an example of question and its corresponding reasoning,
     the question is  "Out of the given list, which of the following conditions is least likely to be an effect of a mutation in the FLG Gene? Given list: Dermatitis, Esophagitis, Dyspepsia, Asthma", and the
     reasoning "From the given data, the FLG gene shows strong associations with Dermatitis and Asthma, indicating a clear link. Esophagitis has a lower Z-score, suggesting a weaker association. Dyspepsia is not listed at all, implying no significant known association. Since all other conditions have at least some association with FLG, however weak, Dyspepsia stands out as the least likely to be an effect of a mutation in the FLG gene."
