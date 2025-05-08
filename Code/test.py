@@ -5,6 +5,7 @@ from rag.rag import RAG
 from prompts.system_prompts import get_system_prompt
 from utils.schema_loader import load_task_schema
 from utils.dataset_loader import managed_load_dataset
+from tqdm import tqdm
 
 openai_client = OpenAIClient()
 spoke_api_client = SpokeAPIClient()
@@ -15,9 +16,10 @@ rag = RAG(openai_client, spoke_api_client, config.CONTEXT_VOLUME, config.QUESTIO
 
 result = []
 
-for question in data["mcq"]:
+for question in tqdm(data["mcq"]):
     question_prompt = question["prompt"]
-    context = rag.retrieve(question_prompt)
+    context, context_table = rag.retrieve(question_prompt)
+    context_tuples = list(context_table.itertuples(index=False, name=None))
 
     enriched_prompt = "Context: "+ context + "\n" + "Question: "+ question_prompt
     system_prompt = get_system_prompt(task="mcq_question_cot_1")
@@ -29,9 +31,9 @@ for question in data["mcq"]:
         "question": question_prompt,
         "chain_of_thought": output["reasoning"],
         "correct_answer": question["correct_answer"],
-        "model_answer": output["answer"]
+        "model_answer": output["answer"],
+        "kg_rag": context_tuples
     }
-    
     result.append(final_output)
     
 print(result[0])
