@@ -43,4 +43,4 @@ class RAG:
 
             node_context_extracted += relevant_context
 
-        return node_context_extracted
+        return node_context_extracted, context_table
