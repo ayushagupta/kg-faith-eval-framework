@@ -1,10 +1,10 @@
 import re
 import numpy as np
 
-import metrics.constants as constants
-from metrics.utils import is_negative_relation
-from metrics.embedding_helpers import embed_triple
-from metrics.scoring_helpers import (
+import faitheval.constants as constants
+from faitheval.utils import is_negative_relation
+from faitheval.embedding_helpers import embed_triple
+from faitheval.scoring_helpers import (
     prepare_rag_structures,
     fuzzy_match_entity,
     score_positive_triple,

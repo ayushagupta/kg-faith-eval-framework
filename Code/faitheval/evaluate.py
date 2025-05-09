@@ -2,7 +2,7 @@ import argparse
 import json
 import numpy as np
 
-from metrics.faithfulness import score_record
+from faitheval.faithfulness import score_record
 
 
 def main(input_path, output_path):

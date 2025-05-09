@@ -2,7 +2,7 @@ import numpy as np
 from rag.utils import get_embedding_function, get_text_embedding
 from config.config import config
 
-from metrics.utils import _simplify
+from faitheval.utils import _simplify
 
 # using same embedding fn for all comparisons (entities, triples)...
 embedding_fn = get_embedding_function(model_name=config.EMBEDDING_MODEL_FOR_NODE_RETRIEVAL)

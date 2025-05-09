@@ -1,10 +1,10 @@
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 
-import metrics.constants as constants
-from metrics.utils import _simplify, _token_overlap_jaccard
-from metrics.embedding_helpers import _embed_entity, embed_triple
-from metrics.graph_helpers import build_edge_index, build_adj_with_rel, find_paths
+import faitheval.constants as constants
+from faitheval.utils import _simplify, _token_overlap_jaccard
+from faitheval.embedding_helpers import _embed_entity, embed_triple
+from faitheval.graph_helpers import build_edge_index, build_adj_with_rel, find_paths
 
 def prepare_rag_structures(rag_triples_raw):
     """
