@@ -1,3 +1,8 @@
+import argparse
+import json
+
+from tqdm import tqdm
+
 from config.config import config
 from llm.openai_client import OpenAIClient
 from spoke.spoke_api_client import SpokeAPIClient
@@ -5,7 +10,10 @@ from rag.rag import RAG
 from prompts.system_prompts import get_system_prompt
 from utils.schema_loader import load_task_schema
 from utils.dataset_loader import managed_load_dataset
-from tqdm import tqdm
+
+parser = argparse.ArgumentParser(description="Test run KG-RAG inference and save output")
+parser.add_argument('--output_path', type=str, required=True, help='Path to output test JSON')
+args = parser.parse_args()
 
 openai_client = OpenAIClient()
 spoke_api_client = SpokeAPIClient()
@@ -19,7 +27,7 @@ result = []
 for question in tqdm(data["mcq"]):
     question_prompt = question["prompt"]
     context, context_table = rag.retrieve(question_prompt)
-    context_tuples = list(context_table.itertuples(index=False, name=None))
+    context_tuples = list(context_table[['source', 'predicate', 'target']].itertuples(index=False, name=None))
 
     enriched_prompt = "Context: "+ context + "\n" + "Question: "+ question_prompt
     system_prompt = get_system_prompt(task="mcq_question_cot_1")
@@ -38,3 +46,6 @@ for question in tqdm(data["mcq"]):
     
 print(result[0])
 
+print(f"Saving results to {args.output_path}")
+with open(args.output_path, 'w', encoding='utf-8') as f:
+    json.dump(result, f, ensure_ascii=False, indent=4)
