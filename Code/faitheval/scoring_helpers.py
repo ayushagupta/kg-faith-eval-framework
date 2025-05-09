@@ -5,6 +5,7 @@ import faitheval.constants as constants
 from faitheval.utils import _simplify, _token_overlap_jaccard
 from faitheval.embedding_helpers import _embed_entity, embed_triple
 from faitheval.graph_helpers import build_edge_index, build_adj_with_rel, find_paths
+from faitheval.logging_config import logger
 
 def prepare_rag_structures(rag_triples_raw):
     """
@@ -84,14 +85,14 @@ def score_positive_triple(cot_embd, source_entities_rag, target_entities_rag, ed
                     cosine_sim_score = _cosine_sim(cot_embd, embed_triple((pair[0], edge_idx[pair], pair[1])))
                     if cosine_sim_score >= constants.TRIPLE_SIM_THRESHOLD:
                         best = max(best, cosine_sim_score)
-                        print(f"Positive triple: Found direct edge: ({pair[0]}, {edge_idx[pair]}, {pair[1]})")
+                        logger.info(f"Positive triple: Found direct edge: ({pair[0]}, {edge_idx[pair]}, {pair[1]})")
             # look for paths
             for path in find_paths(adj, s, t, constants.MAX_PATH_LEN):
                 #TODO: sentence embdg over relations istead of avging...
                 link_sim_scores = _path_similarity(cot_embd, path)
                 if link_sim_scores:
                     best = max(best, float(np.mean(link_sim_scores)))
-                    print(f"Positive CoT triple: Found path between: ({s}, {t}) in KG")
+                    logger.info(f"Positive CoT triple: Found path between: ({s}, {t}) in KG")
     return best
 
 
@@ -101,23 +102,23 @@ def score_negative_triple(source_entities_rag, target_entities_rag, edge_idx, ad
         for t in target_entities_rag:
             for pair in [(s, t), (t, s)]:
                 if pair in edge_idx:
-                    print(f"Negative triple in CoT: Found direct edge in KG: ({pair[0]}, {edge_idx[pair]}, {pair[1]})")
+                    logger.info(f"Negative triple in CoT: Found direct edge in KG: ({pair[0]}, {edge_idx[pair]}, {pair[1]})")
                     return 0.0
             for path in find_paths(adj, s, t, constants.MAX_PATH_LEN):
-                print(f"Negative triple in CoT: Found path in KG: ({path})")
+                logger.info(f"Negative triple in CoT: Found path in KG: ({path})")
                 return 0.0
 
     entity1_in_kg = bool(source_entities_rag)
     entity2_in_kg = bool(target_entities_rag)
 
     if entity1_in_kg and entity2_in_kg:
-        print(f"Negative triple in CoT: Found both entities in KG, link absent: ({source_entities_rag}, {target_entities_rag})")
+        logger.info(f"Negative triple in CoT: Found both entities in KG, link absent: ({source_entities_rag}, {target_entities_rag})")
         score = 1.0
     elif entity1_in_kg or entity2_in_kg:
-        print(f"Negative triple in CoT: Found only one entity in KG: ({source_entities_rag}, {target_entities_rag})")
+        logger.info(f"Negative triple in CoT: Found only one entity in KG: ({source_entities_rag}, {target_entities_rag})")
         score = constants.NEG_TRIPLE_ONE_ENTITY_SCORE
     else:
-        print(f"Negative triple in CoT: Both entities absent from KG: ({source_entities_rag}, {target_entities_rag})")
+        logger.info(f"Negative triple in CoT: Both entities absent from KG: ({source_entities_rag}, {target_entities_rag})")
         score = constants.NEG_TRIPLE_BOTH_ABSENT_SCORE
 
     return score

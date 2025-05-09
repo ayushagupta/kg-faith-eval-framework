@@ -2,6 +2,7 @@ import re
 import numpy as np
 
 import faitheval.constants as constants
+from faitheval.logging_config import logger
 from faitheval.utils import is_negative_relation
 from faitheval.embedding_helpers import embed_triple
 from faitheval.scoring_helpers import (
@@ -34,8 +35,8 @@ def score_record(record):
 
     rag_triples, edge_idx_rag, adj_rag, rag_entities = prepare_rag_structures(rag_triples_raw)
 
-    print("rag_triples: ", rag_triples)
-    print("cot_triples: ", cot_triples)
+    logger.info("rag_triples: %s", rag_triples)
+    logger.info("cot_triples: %s", cot_triples)
 
     triple_scores = []
 

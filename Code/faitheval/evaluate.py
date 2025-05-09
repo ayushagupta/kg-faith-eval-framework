@@ -3,18 +3,19 @@ import json
 import numpy as np
 
 from faitheval.faithfulness import score_record
+from faitheval.logging_config import logger
 
 
 def main(input_path, output_path):
     data = json.load(open(input_path, "r", encoding="utf-8"))
     scores = []
     for row in data:
+        logger.info(f"*** Processing question {row['question_id']} ***")
         score = round(score_record(row), 3)
         row["faithfulness_score"] = score
         scores.append(score)
-    
-    for row in data:
-        print(f"{row['question_id']} : faithfulness = {row['faithfulness_score']:.3f}")
+
+        logger.info(f"{row['question_id']} : faithfulness = {row['faithfulness_score']:.3f}")
     
     print("\nAverage faithfulness score:", f"{float(np.mean(scores)):.3f}")
 
