@@ -18,16 +18,21 @@ args = parser.parse_args()
 openai_client = OpenAIClient()
 spoke_api_client = SpokeAPIClient()
 
-data = managed_load_dataset(data_len=2)
+data = managed_load_dataset(data_len=3)
 
 rag = RAG(openai_client, spoke_api_client, config.CONTEXT_VOLUME, config.QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD, config.QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY)
 
 result = []
 
-for question in tqdm(data["mcq"]):
+for question in tqdm(data["mcq"][2:3]):
     question_prompt = question["prompt"]
-    context, context_table = rag.retrieve(question_prompt)
-    context_tuples = list(context_table[['source', 'predicate', 'target']].itertuples(index=False, name=None))
+    context, context_tables = rag.retrieve(question_prompt)
+    # print(f"Context: {context}")
+    # print(f"Context table: {context_table}")
+    context_tuples = []
+    for context_table in context_tables:
+        print(f"Context table: {context_table.shape}")
+        context_tuples.append(list(context_table[['source', 'predicate', 'target']].itertuples(index=False, name=None)))
 
     enriched_prompt = "Context: "+ context + "\n" + "Question: "+ question_prompt
     system_prompt = get_system_prompt(task="mcq_question_cot_1")

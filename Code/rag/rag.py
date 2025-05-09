@@ -28,10 +28,10 @@ class RAG:
             k = 5
             nodes_found = self.vector_store.similarity_search_with_score(question, k=k)
             max_number_of_high_similarity_context_per_node = int(self.context_volume/k)
-
+        context_tables=[]
         for node in nodes_found:
             node_context, context_table = self.spoke_api_client.get_context(node)
-
+            context_tables.append(context_table)
             relevant_context = extract_relevant_context(
                 node_context=node_context,
                 question_embedding=question_embedding,
@@ -43,4 +43,4 @@ class RAG:
 
             node_context_extracted += relevant_context
 
-        return node_context_extracted, context_table
+        return node_context_extracted, context_tables
