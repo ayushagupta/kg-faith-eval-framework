@@ -9,6 +9,7 @@ def build_edge_index(triples):
     """
     return {(s.lower(), t.lower()): r for (s, r, t) in triples}
 
+
 def build_adj_with_rel(triples):
     """
     Inputs: list of triples [(source, relation, target)]
@@ -18,6 +19,7 @@ def build_adj_with_rel(triples):
     for s, r, t in triples:
         adj[s].append((t, r))
     return adj
+
 
 def find_paths(adj, start_node, final_node, max_len = 2):
     """
