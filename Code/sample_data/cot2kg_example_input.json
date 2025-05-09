@@ -1,0 +1,1719 @@
+[
+    {
+        "question_id": 0,
+        "question": "True or false: Dyspepsia is likely to be an effect of a mutation in the FLG Gene.",
+        "chain_of_thought": "Dyspepsia is not listed among the disease-gene associations for FLG in the given context, while several other conditions (e.g., dermatitis, asthma, esophagitis) have explicit strong associations. The absence of dyspepsia suggests no known or likely link between it and FLG mutations.",
+        "correct_answer": "False",
+        "model_answer": "False",
+        "kg_rag": [
+            [
+                "Disease Dermatitis",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Allergic Disease",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Ichthyosis",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Psoriasis",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Rhinitis",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Asthma",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Acne",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Keratosis",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Netherton syndrome",
+                "ASSOCIATES",
+                "Gene FLG"
+            ],
+            [
+                "Disease Esophagitis",
+                "ASSOCIATES",
+                "Gene FLG"
+            ]
+        ]
+    },
+    {
+        "question_id": 1,
+        "question": "Out of the given list, which Gene is associated with head and neck cancer and uveal melanoma. Given list is:  ABO, CACNA2D1,  PSCA, TERT,  SULT1B1",
+        "chain_of_thought": "The context provided specifies a long list of genes associated with head and neck cancer (e.g., CDKN2A, PIK3CA) but does not mention any of the genes from the provided options: ABO, CACNA2D1, PSCA, TERT, and SULT1B1 in relation to head and neck cancer. Similarly, the information on uveal melanoma also does not include any of these genes. Therefore, since none of these genes are found in the associations for either condition in the provided context, the correct answer is that none of them are associated with both diseases.",
+        "correct_answer": "CACNA2D1",
+        "model_answer": "None of the genes listed are associated with both head and neck cancer and uveal melanoma.",
+        "kg_rag": [
+            [
+                "Disease uveal epithelioid cell melanoma",
+                "ISA",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Disease mixed cell uveal melanoma",
+                "ISA",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Disease necrotic uveal melanoma",
+                "ISA",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Disease posterior uveal melanoma",
+                "ISA",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ISA",
+                "Disease uveal cancer"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ISA",
+                "Disease melanoma"
+            ],
+            [
+                "Compound Triamcinolone Acetonide",
+                "TREATS",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound RANIBIZUMAB",
+                "TREATS",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene SF3B1"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene IRF4"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene HERC2"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene CLPTM1L"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene MBD4"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene CYSLTR2"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene STK11"
+            ],
+            [
+                "Disease uveal melanoma",
+                "ASSOCIATES",
+                "Gene TDP1"
+            ],
+            [
+                "Protein N-chimaerin (A-chimaerin) (Alpha-chimerin) (N-chimerin) (NC) (Rho GTPase-activating protein 2)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Recoverin (Cancer-associated retinopathy protein) (Protein CAR)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Integrin alpha-E (HML-1 antigen) (Integrin alpha-IEL) (Mucosal lymphocyte 1 antigen) (CD_antigen=CD103) [Cleaved into: Integrin alpha-E light chain] [Cleaved into: Integrin alpha-E heavy chain]",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein B-lymphocyte antigen CD20 (B-lymphocyte surface antigen B1) (Bp35) (Leukocyte surface antigen Leu-16) (Membrane-spanning 4-domains subfamily A member 1) (CD_antigen=CD20)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Guanine nucleotide-binding protein G",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Fibroblast growth factor-binding protein 2 (FGF-BP2) (FGF-binding protein 2) (FGFBP-2) (37 kDa killer-specific secretory protein) (Ksp37) (HBp17-related protein) (HBp17-RP)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Tumor necrosis factor receptor superfamily member 4 (ACT35 antigen) (OX40L receptor) (TAX transcriptionally-activated glycoprotein 1 receptor) (CD_antigen=CD134)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein OX-2 membrane glycoprotein (CD_antigen=CD200)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Integral membrane protein 2A (Protein E25)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Interleukin-2 receptor subunit alpha (IL-2 receptor subunit alpha) (IL-2-RA) (IL-2R subunit alpha) (IL2-RA) (TAC antigen) (p55) (CD_antigen=CD25)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Granzyme A (3.4.21.78 {ECO:0000269|PubMed:12819770, ECO:0000269|PubMed:32299851}) (CTL tryptase) (Cytotoxic T-lymphocyte proteinase 1) (Fragmentin-1) (Granzyme-1) (Hanukkah factor) (H factor {ECO:0000303|PubMed:3257574}) (HF {ECO:0000303|PubMed:3257574})",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein T-cell surface glycoprotein CD3 delta chain (T-cell receptor T3 delta chain) (CD_antigen=CD3d)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Tubulin beta chain (Tubulin beta-5 chain)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Insulin growth factor-like family member 2",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Marginal zone B- and B1-cell-specific protein (Mesenteric estrogen-dependent adipose 7) (MEDA-7) (Plasma cell-induced resident endoplasmic reticulum protein) (Plasma cell-induced resident ER protein) (pERp1) (Proapoptotic caspase adapter protein)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Complement C1q subcomponent subunit A",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Tubulin alpha-1B chain (Alpha-tubulin ubiquitous) (Tubulin K-alpha-1) (Tubulin alpha-ubiquitous chain) [Cleaved into: Detyrosinated tubulin alpha-1B chain]",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Syndecan-1 (SYND1) (CD_antigen=CD138)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Tissue-resident T-cell transcription regulator protein ZNF683 (Homolog of Blimp-1 in T-cell) (Hobit {ECO:0000250|UniProtKB:I7HJS4}) (Zinc finger protein 683)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Forkhead box protein P3 (Scurfin) [Cleaved into: Forkhead box protein P3, C-terminally processed] [Cleaved into: Forkhead box protein P3 41 kDa form]",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein B-cell antigen receptor complex-associated protein alpha chain (Ig-alpha) (MB-1 membrane glycoprotein) (Membrane-bound immunoglobulin-associated protein) (Surface IgM-associated protein) (CD_antigen=CD79a)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Proliferation marker protein Ki-67 (Antigen identified by monoclonal antibody Ki-67) (Antigen KI-67 {ECO:0000305}) (Antigen Ki67 {ECO:0000305})",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein B-lymphocyte antigen CD19 (B-lymphocyte surface antigen B4) (Differentiation antigen CD19) (T-cell surface antigen Leu-12) (CD_antigen=CD19)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Protein S100-A12 (CGRP) (Calcium-binding protein in amniotic fluid 1) (CAAF1) (Calgranulin-C) (CAGC) (Extracellular newly identified RAGE-binding protein) (EN-RAGE) (Migration inhibitory factor-related protein 6) (MRP-6) (p6) (Neutrophil S100 protein) (S100 calcium-binding protein A12) [Cleaved into: Calcitermin]",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Monocyte differentiation antigen CD14 (Myeloid cell-specific leucine-rich glycoprotein) (CD_antigen=CD14) [Cleaved into: Monocyte differentiation antigen CD14, urinary form] [Cleaved into: Monocyte differentiation antigen CD14, membrane-bound form]",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein NKG2-D type II integral membrane protein (Killer cell lectin-like receptor subfamily K member 1) (NK cell receptor D) (NKG2-D-activating NK receptor) (CD_antigen=CD314)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein L-dopachrome tautomerase (DCT) (DT) (5.3.3.12) (L-dopachrome Delta-isomerase) (Tyrosinase-related protein 2) (TRP-2) (TRP2)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein T-cell surface glycoprotein CD1c (CD_antigen=CD1c)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Complement C1q subcomponent subunit C",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Glucocorticoid receptor (GR) (Nuclear receptor subfamily 3 group C member 1)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Complement C1q subcomponent subunit B",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Granzyme K (3.4.21.-) (Fragmentin-3) (Granzyme-3) (NK-tryptase-2) (NK-Tryp-2)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein T cell receptor delta constant",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Interleukin-10 (IL-10) (Cytokine synthesis inhibitory factor) (CSIF)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Macrosialin (Gp110) (CD_antigen=CD68)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Zinc finger protein Helios (Ikaros family zinc finger protein 2)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein von Willebrand factor (vWF) (von Willebrand antigen II) [Cleaved into: von Willebrand antigen 2]",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Perforin-1 (P1) (Cytolysin) (Lymphocyte pore-forming protein) (PFP)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Protein NKG7 (G-CSF-induced gene 1 protein) (GIG-1 protein) (Granule membrane protein of 17 kDa) (GMP-17) (Natural killer cell protein 7) (p15-TIA-1)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Stathmin (Leukemia-associated phosphoprotein p18) (Metablastin) (Oncoprotein 18) (Op18) (Phosphoprotein p19) (pp19) (Prosolin) (Protein Pr22) (pp17)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Fibroblast growth factor 7 (FGF-7) (Heparin-binding growth factor 7) (HBGF-7) (Keratinocyte growth factor)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein High mobility group protein B2 (High mobility group protein 2) (HMG-2)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein C-type lectin domain family 10 member A (C-type lectin superfamily member 14) (Macrophage lectin 2) (CD_antigen=CD301)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein T-cell surface glycoprotein CD8 alpha chain (T-lymphocyte differentiation antigen T8/Leu-2) (CD_antigen=CD8a)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein T-cell surface glycoprotein CD3 epsilon chain (T-cell surface antigen T3/Leu-4 epsilon chain) (CD_antigen=CD3e)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Microphthalmia-associated transcription factor (Class E basic helix-loop-helix protein 32) (bHLHe32)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Scavenger receptor cysteine-rich type 1 protein M130 (Hemoglobin scavenger receptor) (CD_antigen=CD163) (sCD163) [Cleaved into: Soluble CD163]",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Carboxypeptidase M (CPM) (3.4.17.12 {ECO:0000269|PubMed:12457462})",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein CX3C chemokine receptor 1 (C-X3-C CKR-1 {ECO:0000303|PubMed:12551893}) (CX3CR1 {ECO:0000303|PubMed:12551893}) (Beta chemokine receptor-like 1) (CMK-BRL-1 {ECO:0000303|PubMed:7646814}) (CMK-BRL1 {ECO:0000303|PubMed:7646814}) (Fractalkine receptor) (G-protein coupled receptor 13) (V28)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Melanoma antigen recognized by T-cells 1 (MART-1) (Antigen LB39-AA) (Antigen SK29-AA) (Protein Melan-A)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Retinoid isomerohydrolase (3.1.1.64 {ECO:0000269|PubMed:25112876, ECO:0000269|PubMed:29659842}) (All-trans-retinyl-palmitate hydrolase) (Lutein isomerase) (Meso-zeaxanthin isomerase) (5.3.3.22 {ECO:0000269|PubMed:28874556}) (Retinal pigment epithelium-specific 65 kDa protein) (Retinol isomerase)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Protein Immunoglobulin heavy constant gamma 1 (Ig gamma-1 chain C region) (Ig gamma-1 chain C region EU) (Ig gamma-1 chain C region KOL) (Ig gamma-1 chain C region NIE)",
+                "INCREASEDIN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound OBINUTUZUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Lenalidomide",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound NIVOLUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Everolimus",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Cyclophosphamide",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Triamcinolone Acetonide",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Sivelestat",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound TISLELIZUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Lenvatinib",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound PEMBROLIZUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Pemetrexed",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Olaparib",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound ALDESLEUKIN",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Melphalan",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Entrectinib",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Ruxolitinib",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Fludarabine Phosphate",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Cediranib",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound RANIBIZUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound SPARTALIZUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound LIFILEUCEL",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Pasireotide",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound TOCILIZUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Sunitinib",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound INCOMPLETE FREUND'S ADJUVANT",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound IPILIMUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound DURVALUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound AVELUMAB",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound azane;dichloroplatinum",
+                "MENTIONED",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound IPILIMUMAB",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Niraparib",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound [2-Cytidylate-O'-phosphonyloxyl]-ethyl-trimethyl-ammonium",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Selumetinib",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound AFLIBERCEPT",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound LIFILEUCEL",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Cediranib",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Sorafenib",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound TEBENTAFUSP",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound PEMBROLIZUMAB",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Melphalan",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Melatonin",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Vorinostat",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Triamcinolone Acetonide",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound RANIBIZUMAB",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Olaparib",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound PEGARGIMINASE",
+                "IN",
+                "Disease uveal melanoma"
+            ],
+            [
+                "Compound Crizotinib",
+                "IN",
+                "Disease uveal melanoma"
+            ]
+        ]
+    },
+    {
+        "question_id": 2,
+        "question": "Out of the given list, which Gene is associated with male breast cancer and urticaria. Given list is:  BABAM1, RAD51B,  PHGDH, ABO,  TERT",
+        "chain_of_thought": "The question asks for a gene associated with both male breast cancer and urticaria. In the provided context, RAD51B is explicitly mentioned as being associated with male breast cancer. The other genes listed (BABAM1, PHGDH, ABO, TERT) do not have any associations with either male breast cancer or urticaria mentioned in the context provided. Therefore, RAD51B is the only gene that fits the criteria of being associated with male breast cancer as per the given details.",
+        "correct_answer": "RAD51B",
+        "model_answer": "RAD51B",
+        "kg_rag": [
+            [
+                "Disease chronic urticaria",
+                "ISA",
+                "Disease urticaria"
+            ],
+            [
+                "Disease allergic urticaria",
+                "ISA",
+                "Disease urticaria"
+            ],
+            [
+                "Disease physical urticaria",
+                "ISA",
+                "Disease urticaria"
+            ],
+            [
+                "Disease urticaria",
+                "ISA",
+                "Disease skin disease"
+            ],
+            [
+                "Compound Cholecalciferol",
+                "TREATS",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Desloratadine",
+                "TREATS",
+                "Disease urticaria"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene STIM1"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene WHR1"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene STAT6"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene GCSAML"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene PTPN22"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene TPSB2"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene TBL1XR1"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene ZNF728"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene CNTRL"
+            ],
+            [
+                "Disease urticaria",
+                "ASSOCIATES",
+                "Gene ADGRE2"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Haiti"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Nauru"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Guam"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Cambodia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Samoa"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Dominica"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Ecuador"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Sudan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Botswana"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Sweden"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Republic of the Congo"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Spain"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Malta"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bosnia and Herzegovina"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Germany"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Nauru"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Armenia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Venezuela"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Belgium"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Uruguay"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Palau"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Norway"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Croatia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Mongolia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Suriname"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location South Africa"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Paraguay"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Guinea"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Costa Rica"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location United Arab Emirates"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bahrain"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Cook Islands"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Indonesia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Slovenia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Moldova"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Vanuatu"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Panama"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Poland"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Micronesia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Colombia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Cameroon"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location El Salvador"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Russia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location India"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Zimbabwe"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location China"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Madagascar"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location The Netherlands"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Burundi"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Kenya"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Tunisia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bolivia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Kiribati"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Fiji"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Papua New Guinea"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Tanzania"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Peru"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Kuwait"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location North Macedonia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Georgia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Yemen"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Senegal"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Qatar"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Philippines"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Algeria"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Angola"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Saudi Arabia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Saint Vincent and the Grenadines"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Northern Mariana Islands"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Brazil"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Afghanistan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Morocco"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Singapore"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Niue"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bulgaria"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Luxembourg"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Antigua and Barbuda"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Serbia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Guyana"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Saint Kitts and Nevis"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location U.S. Virgin Islands"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Ethiopia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location United States of America"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Jordan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Mozambique"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Hungary"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Finland"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Equatorial Guinea"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Turkey"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Gambia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Latvia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Austria"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Japan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Solomon Islands"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Honduras"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location American Samoa"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Libya"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Cabo Verde"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Nepal"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Estonia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Burkina Faso"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Pakistan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Greenland"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Andorra"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Uzbekistan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Comoros"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Ireland"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Tokelau"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Puerto Rico"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Somalia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Eritrea"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Denmark"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Seychelles"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Uganda"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Ukraine"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Kazakhstan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Guatemala"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location New Zealand"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Ghana"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bermuda"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Sierra Leone"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Tonga"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Grenada"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Malawi"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Canada"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Trinidad and Tobago"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Azerbaijan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Democratic Republic of the Congo"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Australia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Taiwan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location France"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Turkmenistan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location San Marino"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Nicaragua"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Iceland"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Egypt"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Jamaica"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bangladesh"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Belize"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Marshall Islands"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Cyprus"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Mauritius"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Djibouti"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Mali"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Maldives"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Mauritania"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Iran"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Thailand"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Guinea-Bissau"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Albania"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Barbados"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Liberia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Zambia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Saint Lucia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Eswatini"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Lesotho"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Israel"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Montenegro"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bahamas"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Central African Republic"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Oman"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Chile"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Chad"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Rwanda"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Bhutan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Nigeria"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Lithuania"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Malaysia"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Romania"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Tuvalu"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Timor Leste"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Argentina"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Belarus"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Tajikistan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Italy"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location South Sudan"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Cuba"
+            ],
+            [
+                "Disease urticaria",
+                "PREVALENCE",
+                "Location Iraq"
+            ],
+            [
+                "Compound Prednisolone",
+                "MENTIONED",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Desloratadine",
+                "MENTIONED",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Dexamethasone",
+                "MENTIONED",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Cetirizine",
+                "MENTIONED",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Fexofenadine",
+                "MENTIONED",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Bilastine",
+                "MENTIONED",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Ebastine",
+                "MENTIONED",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Desloratadine",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Bilastine",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound ANAKINRA",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Levocetirizine",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound ABATACEPT",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Rupatadine",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound OMALIZUMAB",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound CANAKINUMAB",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Fexofenadine",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Cholecalciferol",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound Methotrexate",
+                "IN",
+                "Disease urticaria"
+            ],
+            [
+                "Compound RITUXIMAB",
+                "IN",
+                "Disease urticaria"
+            ]
+        ]
+    }
+]
