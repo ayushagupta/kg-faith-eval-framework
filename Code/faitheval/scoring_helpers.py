@@ -101,6 +101,7 @@ def score_positive_triple(cot_embd, source_entities_rag, target_entities_rag, ed
                     found_evidence = True
     
     if not found_evidence:
+        logger.info(reason_for_zero)
         hallucination_recorder.append({
             "cot_triple": list(cot_triple_raw),
             "retrieved_sources": list(source_entities_rag),
@@ -115,6 +116,18 @@ def score_negative_triple(source_entities_rag, target_entities_rag, edge_idx, ad
     # if edge/path actually exists in KG, it contradicts negation stated in CoT - hallucination
     for s in source_entities_rag:
         for t in target_entities_rag:
+            for path in find_paths(adj, s, t, constants.MAX_PATH_LEN):
+                reason = f"Negative triple in CoT: Contradicted by path in KG: ({path})"
+                logger.info(reason)
+                hallucination_recorder.append({
+                    "cot_triple": list(cot_triple_raw),
+                    "retrieved_sources": list(source_entities_rag),
+                    "retrieved_targets": list(target_entities_rag),
+                    "highest_sim_score": 0.0,
+                    "reason": reason
+                })
+                return 0.0
+            # look for direct edge after checking for path
             for pair in [(s, t), (t, s)]:
                 if pair in edge_idx:
                     reason = f"Negative triple in CoT: Contradicted by direct edge in KG: ({pair[0]}, {edge_idx[pair]}, {pair[1]})"
@@ -127,17 +140,7 @@ def score_negative_triple(source_entities_rag, target_entities_rag, edge_idx, ad
                         "reason": reason
                     })
                     return 0.0
-            for path in find_paths(adj, s, t, constants.MAX_PATH_LEN):
-                reason = f"Negative triple in CoT: Contradicted by path in KG: ({path})"
-                logger.info(f"reason")
-                hallucination_recorder.append({
-                    "cot_triple": list(cot_triple_raw),
-                    "retrieved_sources": list(source_entities_rag),
-                    "retrieved_targets": list(target_entities_rag),
-                    "highest_sim_score": 0.0,
-                    "reason": reason
-                })
-                return 0.0
+            
 
     entity1_in_kg = bool(source_entities_rag)
     entity2_in_kg = bool(target_entities_rag)
