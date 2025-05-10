@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
+    
 	# VectorDB config
 	VECTOR_DB_DISEASE_ENTITY_PATH = os.getenv(
 		"VECTOR_DB_DISEASE_ENTITY_PATH", "data/disease_with_relation_to_genes.pickle"
@@ -20,7 +21,6 @@ class Config:
 
 	# OpenAI config
 	OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-	MODEL_NAME = os.getenv("MODEL_NAME", "gpt-4o-mini")
 	TEMPERATURE = float(os.getenv("TEMPERATURE", 0))
 	MAX_TOKENS = int(os.getenv("MAX_TOKENS", 1000))
 
@@ -46,6 +46,10 @@ class Config:
 	CUTOFF_ACTEG_LEVEL = os.getenv("CUTOFF_ACTEG_LEVEL", "Low,Medium,High").split(',')
 	CUTOFF_DPL_AVERAGE_PREVALENCE = float(os.getenv("CUTOFF_DPL_AVERAGE_PREVALENCE", 0.001))
 	DEPTH = int(os.getenv("DEPTH", 1))
+ 
+	def __init__(self, model_name: str = "gpt-4o-mini"):
+		self.MODEL_NAME = model_name
 
 
-config = Config()
+config_mini = Config(model_name="gpt-4o-mini")
+config_4o = Config(model_name="gpt-4o")

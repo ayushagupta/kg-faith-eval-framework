@@ -1,5 +1,5 @@
 from rag.utils import *
-from config.config import config
+from config.config import config_mini as config
 
 class RAG:
     def __init__(self, openai_client, spoke_api_client, context_volume, context_similarity_percentile_threshold, context_similarity_min_threshold):

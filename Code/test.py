@@ -3,7 +3,7 @@ import json
 
 from tqdm import tqdm
 
-from config.config import config
+from config.config import config_4o, config_mini
 from llm.openai_client import OpenAIClient
 from spoke.spoke_api_client import SpokeAPIClient
 from rag.rag import RAG
@@ -15,20 +15,19 @@ parser = argparse.ArgumentParser(description="Test run KG-RAG inference and save
 parser.add_argument('--output_path', type=str, required=True, help='Path to output test JSON')
 args = parser.parse_args()
 
-openai_client = OpenAIClient()
+extraction_client = OpenAIClient(config=config_mini)
+inference_client = OpenAIClient(config=config_mini)
 spoke_api_client = SpokeAPIClient()
 
 data = managed_load_dataset(data_len=3)
 
-rag = RAG(openai_client, spoke_api_client, config.CONTEXT_VOLUME, config.QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD, config.QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY)
+rag = RAG(extraction_client, spoke_api_client, config_mini.CONTEXT_VOLUME, config_mini.QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD, config_mini.QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY)
 
 result = []
 
 for question in tqdm(data["mcq"][2:3]):
     question_prompt = question["prompt"]
     context, context_tables = rag.retrieve(question_prompt)
-    # print(f"Context: {context}")
-    # print(f"Context table: {context_table}")
     context_tuples = []
     for context_table in context_tables:
         print(f"Context table: {context_table.shape}")
@@ -37,7 +36,7 @@ for question in tqdm(data["mcq"][2:3]):
     enriched_prompt = "Context: "+ context + "\n" + "Question: "+ question_prompt
     system_prompt = get_system_prompt(task="mcq_question_cot_1")
     text_data = load_task_schema(task="mcq_question_cot")
-    output = openai_client.generate_json_response(instructions=system_prompt, input_text=enriched_prompt, text_data=text_data)
+    output = inference_client.generate_json_response(instructions=system_prompt, input_text=enriched_prompt, text_data=text_data)
     
     final_output = {
         "question_id": question["question_id"],
