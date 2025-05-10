@@ -72,11 +72,14 @@ def _path_similarity(cot_embd, path_rag):
         _cosine_sim(cot_embd, embed_triple((source, relation, target)))
         for source, relation, target in path_rag
     ]
-    return link_sim_scores #float(np.mean(sims)) if sims else 0.0
+    return link_sim_scores
 
 
-def score_positive_triple(cot_embd, source_entities_rag, target_entities_rag, edge_idx, adj):
+def score_positive_triple(cot_embd, source_entities_rag, target_entities_rag, edge_idx, adj, cot_triple_raw, hallucination_recorder):
     best = 0.0
+    found_evidence = False
+    reason_for_zero = "No supporting evidence found in KG for positive CoT triple" # no edge/path above similarity thresholds
+
     for s in source_entities_rag:
         for t in target_entities_rag:
             # direct edge - check both directions (wording differences), it's loaded the right way in edge_idx
@@ -85,27 +88,55 @@ def score_positive_triple(cot_embd, source_entities_rag, target_entities_rag, ed
                     cosine_sim_score = _cosine_sim(cot_embd, embed_triple((pair[0], edge_idx[pair], pair[1])))
                     if cosine_sim_score >= constants.TRIPLE_SIM_THRESHOLD:
                         best = max(best, cosine_sim_score)
-                        logger.info(f"Positive triple: Found direct edge: ({pair[0]}, {edge_idx[pair]}, {pair[1]})")
+                        logger.info(f"Positive CoT triple: Found direct edge: ({pair[0]}, {edge_idx[pair]}, {pair[1]})")
+                        found_evidence = True
             # look for paths
             for path in find_paths(adj, s, t, constants.MAX_PATH_LEN):
                 #TODO: sentence embdg over relations istead of avging...
                 link_sim_scores = _path_similarity(cot_embd, path)
-                if link_sim_scores:
-                    best = max(best, float(np.mean(link_sim_scores)))
-                    logger.info(f"Positive CoT triple: Found path between: ({s}, {t}) in KG")
+                path_avg_sim_score = float(np.mean(link_sim_scores))
+                if path_avg_sim_score >= constants.MIN_LINK_SCORE:
+                    best = max(best, path_avg_sim_score)
+                    logger.info(f"Positive CoT triple: Found path between: ({s}, {t}) in KG with averaged cosine sim score = {path_avg_sim_score:.3f}")
+                    found_evidence = True
+    
+    if not found_evidence:
+        hallucination_recorder.append({
+            "cot_triple": list(cot_triple_raw),
+            "retrieved_sources": list(source_entities_rag),
+            "retrieved_targets": list(target_entities_rag),
+            "highest_sim_score": round(best, 3),
+            "reason": reason_for_zero
+        })
     return best
 
 
-def score_negative_triple(source_entities_rag, target_entities_rag, edge_idx, adj):
+def score_negative_triple(source_entities_rag, target_entities_rag, edge_idx, adj, cot_triple_raw, hallucination_recorder):
     # if edge/path actually exists in KG, it contradicts negation stated in CoT - hallucination
     for s in source_entities_rag:
         for t in target_entities_rag:
             for pair in [(s, t), (t, s)]:
                 if pair in edge_idx:
-                    logger.info(f"Negative triple in CoT: Found direct edge in KG: ({pair[0]}, {edge_idx[pair]}, {pair[1]})")
+                    reason = f"Negative triple in CoT: Contradicted by direct edge in KG: ({pair[0]}, {edge_idx[pair]}, {pair[1]})"
+                    logger.info(reason)
+                    hallucination_recorder.append({
+                        "cot_triple": list(cot_triple_raw),
+                        "retrieved_sources": list(source_entities_rag),
+                        "retrieved_targets": list(target_entities_rag),
+                        "highest_sim_score": 0.0,
+                        "reason": reason
+                    })
                     return 0.0
             for path in find_paths(adj, s, t, constants.MAX_PATH_LEN):
-                logger.info(f"Negative triple in CoT: Found path in KG: ({path})")
+                reason = f"Negative triple in CoT: Contradicted by path in KG: ({path})"
+                logger.info(f"reason")
+                hallucination_recorder.append({
+                    "cot_triple": list(cot_triple_raw),
+                    "retrieved_sources": list(source_entities_rag),
+                    "retrieved_targets": list(target_entities_rag),
+                    "highest_sim_score": 0.0,
+                    "reason": reason
+                })
                 return 0.0
 
     entity1_in_kg = bool(source_entities_rag)
@@ -118,7 +149,15 @@ def score_negative_triple(source_entities_rag, target_entities_rag, edge_idx, ad
         logger.info(f"Negative triple in CoT: Found only one entity in KG: ({source_entities_rag}, {target_entities_rag})")
         score = constants.NEG_TRIPLE_ONE_ENTITY_SCORE
     else:
-        logger.info(f"Negative triple in CoT: Both entities absent from KG: ({source_entities_rag}, {target_entities_rag})")
+        reason = "Negative triple in CoT: Both entities absent from KG"
+        logger.info(reason)
         score = constants.NEG_TRIPLE_BOTH_ABSENT_SCORE
+        hallucination_recorder.append({
+            "cot_triple": list(cot_triple_raw),
+            "retrieved_sources": list(source_entities_rag),
+            "retrieved_targets": list(target_entities_rag),
+            "highest_sim_score": score,
+            "reason": reason
+        })
 
     return score

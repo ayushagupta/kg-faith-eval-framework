@@ -28,10 +28,11 @@ def score_record(record):
     Outputs:
         faithfulness/groundedness score for the record (value between [0,1])
     """
-
     cot_triples = record["cot_kg"]
     rag_triples_raw = record["kg_rag"]
     #question_text = record["question"].lower() # TODO: check existence of entity from cot-kg in question, if entity is absent from both kg-rag and question, score 0 (hallucincation) and move to next record 
+    
+    hallucination_details_for_record = []
 
     rag_triples, edge_idx_rag, adj_rag, rag_entities = prepare_rag_structures(rag_triples_raw)
 
@@ -40,23 +41,25 @@ def score_record(record):
 
     triple_scores = []
 
-    for s_cot_raw, rel_cot, t_cot_raw in cot_triples:        
+    for s_cot_raw, rel_cot, t_cot_raw in cot_triples: 
         cot_triple_embd = embed_triple((s_cot_raw, rel_cot, t_cot_raw))
+        cot_triple_raw = tuple((s_cot_raw, rel_cot, t_cot_raw))
 
         source_entities_rag = fuzzy_match_entity(s_cot_raw, rag_entities)
         target_entities_rag = fuzzy_match_entity(t_cot_raw, rag_entities)
 
         # For CoT triples with positive relations (standard)    
         if not is_negative_relation(rel_cot):
-            score = score_positive_triple(cot_triple_embd, source_entities_rag, target_entities_rag, edge_idx_rag, adj_rag)
+            score = score_positive_triple(cot_triple_embd, source_entities_rag, target_entities_rag, edge_idx_rag, adj_rag, cot_triple_raw, hallucination_details_for_record)
         # For CoT triples with negative relations (negation of relations defined in KG - Ex: "does not associate", "is not", etc.)
         else:
-            score = score_negative_triple(source_entities_rag, target_entities_rag, edge_idx_rag, adj_rag)
+            score = score_negative_triple(source_entities_rag, target_entities_rag, edge_idx_rag, adj_rag, cot_triple_raw, hallucination_details_for_record)
 
         triple_scores.append(score)
 
     # Incorrect intermediate step in CoT falsifies all subsequent steps ... 
     if any(s < constants.MIN_LINK_SCORE for s in triple_scores):
-        return 0.0
-
-    return float(np.mean(triple_scores)) if triple_scores else 0.0
+        return 0.0, hallucination_details_for_record
+    
+    final_score = float(np.mean(triple_scores)) if triple_scores else 0.0
+    return final_score, hallucination_details_for_record
