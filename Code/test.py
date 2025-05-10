@@ -32,7 +32,7 @@ for question in tqdm(data["mcq"][2:3]):
     context_tuples = []
     for context_table in context_tables:
         print(f"Context table: {context_table.shape}")
-        context_tuples.append(list(context_table[['source', 'predicate', 'target']].itertuples(index=False, name=None)))
+        context_tuples.extend(list(context_table[['source', 'predicate', 'target']].itertuples(index=False, name=None)))
 
     enriched_prompt = "Context: "+ context + "\n" + "Question: "+ question_prompt
     system_prompt = get_system_prompt(task="mcq_question_cot_1")
