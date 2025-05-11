@@ -1,5 +1,5 @@
 import requests
-from config.config import config
+from config.config import config_mini as config
 import ast
 import pandas as pd
 import logging
