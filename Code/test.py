@@ -35,7 +35,7 @@ rag = RAG(extraction_client, spoke_api_client, config_mini.CONTEXT_VOLUME, confi
 
 result = []
 
-for question in tqdm(data["mcq"]):
+for question in tqdm(data["tf"]):
     try:
         question_prompt = question["prompt"]
         context, context_tables = rag.retrieve(question_prompt)
@@ -52,7 +52,7 @@ for question in tqdm(data["mcq"]):
             "question_id": question["question_id"],
             "question": question_prompt,
             "chain_of_thought": output["reasoning"],
-            "correct_answer": question["correct_answer"],
+            "correct_answer": str(question["correct_answer"]).lower(),
             "model_answer": output["answer"],
             "kg_rag": context_tuples
         }
