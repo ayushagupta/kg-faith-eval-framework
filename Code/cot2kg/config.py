@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from config.config import config as _global
+from config.config import config_mini as _global
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", _global.OPENAI_API_KEY)
 MODEL_NAME = os.getenv("COT2KG_MODEL_NAME", "gpt-4o-mini")

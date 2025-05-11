@@ -1,8 +1,9 @@
 import re, ast
 from llm.openai_client import OpenAIClient
+from config.config import config_mini
 from cot2kg.prompts import COT2KG_PROMPT
 
-_client = OpenAIClient()
+_client = OpenAIClient(config=config_mini)
 
 _PY_BLOCK = re.compile(r"<python>(.*?)</python>", re.DOTALL | re.IGNORECASE)
 
