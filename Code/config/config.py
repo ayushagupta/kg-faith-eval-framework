@@ -21,6 +21,9 @@ class Config:
 
 	# OpenAI config
 	OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+	# Groq config
+	GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+	GROQ_MODEL_NAME = os.getenv("GROQ_MODEL_NAME", "llama3-8b-8192")
 	TEMPERATURE = float(os.getenv("TEMPERATURE", 0))
 	MAX_TOKENS = int(os.getenv("MAX_TOKENS", 1000))
 
@@ -53,3 +56,4 @@ class Config:
 
 config_mini = Config(model_name="gpt-4o-mini")
 config_4o = Config(model_name="gpt-4o")
+config_llama = Config(model_name="llama-3.1-8b-instant")
