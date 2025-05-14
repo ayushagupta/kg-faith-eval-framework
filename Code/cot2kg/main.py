@@ -6,6 +6,7 @@ Modes:
 
 import argparse
 from pathlib import Path
+from tqdm import tqdm
 
 import cot2kg.convert_to_kg as convert_to_kg
 from cot2kg.io_utils import load_json, save_json
@@ -25,7 +26,7 @@ def _process(inp: Path, out: Path, mode: str):
     data = load_json(inp)
     out_data = []
 
-    for rec in data:
+    for rec in tqdm(data, desc="Processing records"):
         cot = rec.get("chain_of_thought")
         if cot is None or "":
             raise ValueError("Record missing 'chain_of_thought'")

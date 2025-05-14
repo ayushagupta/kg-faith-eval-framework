@@ -7,7 +7,7 @@ Step 2 - Coreference resolution: Find all expressions in the text that refer to 
 
 Step 3 - Relation extraction: Identify semantic relationships between the entities you have identified.
 
-Format: Return the knowledge graph as a list of triples, i.e., ["entity 1", "relation 1-2", "entity 2"], in Python code. Make sure the triples are not redundant. "relation 1-2" is usually a single word or extrmely short phrase which carries the entire meaning of how the two entities are related. For example: ASSOCIATES, IN, ISA, INCREASEDIN, MENTIONED, etc are all good, meaniningful relations. An example of a BAD triple is ["ATG5", "MUTATIONS", "no known or likely link with psoriasis"] - the equivalent good triple is ["ATG5 MUTATIONS", "no link", "psoriasis"]
+Format: Return the knowledge graph as a list of triples, i.e., ["entity 1", "relation 1-2", "entity 2"], in Python code. Make sure the triples are not redundant, even when the input raw text contains redundant information. "relation 1-2" is usually a single word or extremely short phrase which carries the entire meaning of how the two entities are related. For example: ASSOCIATES, IN, ISA, INCREASEDIN, MENTIONED, etc are all good, meaniningful relations. An example of a BAD triple is ["ATG5", "MUTATIONS", "no known or likely link with psoriasis"] - the equivalent good triple is ["ATG5 MUTATIONS", "no link", "psoriasis"]
 
 ---
 
@@ -91,5 +91,38 @@ Output:
   ["herpes zoster", "DOES NOT ASSOCIATE", "ATG5"],
   ["psoriasis", "DOES NOT ASSOCIATE", "ATG5"]
 ]
+</python>
+
+Example 5.
+Input:
+"HLA-B is associated with both herpes zoster and psoriatic arthritis as per the provided context. This gene is mentioned specifically in both cases, indicating its relevance in the pathogenesis of these diseases. The other genes in the list (ADGRV1, CPS1, SULT1B1, ATG5) do not appear in the contexts associated with herpes zoster or psoriatic arthritis, making them unsuitable answers. Therefore, HLA-B is the correct choice, as it is the only gene common to both lists."
+
+GOOD Output:
+<python>
+["HLA-B", "ASSOCIATES", "herpes zoster"],
+["HLA-B", "ASSOCIATES", "psoriatic arthritis"],
+["herpes zoster", "DOES NOT ASSOCIATE", "ADGRV1"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "ADGRV1"],
+["herpes zoster", "DOES NOT ASSOCIATE", "CPS1"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "CPS1"],
+["herpes zoster", "DOES NOT ASSOCIATE", "SULT1B1"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "SULT1B1"],
+["herpes zoster", "DOES NOT ASSOCIATE", "ATG5"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "ATG5"]
+</python>
+
+BAD Output:
+<python>
+["HLA-B", "ASSOCIATES", "herpes zoster"],
+["HLA-B", "ASSOCIATES", "psoriatic arthritis"],
+["herpes zoster", "DOES NOT ASSOCIATE", "ADGRV1"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "ADGRV1"],
+["herpes zoster", "DOES NOT ASSOCIATE", "CPS1"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "CPS1"],
+["herpes zoster", "DOES NOT ASSOCIATE", "SULT1B1"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "SULT1B1"],
+["herpes zoster", "DOES NOT ASSOCIATE", "ATG5"],
+["psoriatic arthritis", "DOES NOT ASSOCIATE", "ATG5"],
+["HLA-B", "common to", "both lists"]
 </python>
 """

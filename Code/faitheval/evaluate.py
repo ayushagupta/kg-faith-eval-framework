@@ -2,6 +2,7 @@ import argparse
 import json
 import numpy as np
 from collections import defaultdict
+from tqdm import tqdm
 
 from faitheval.faithfulness import score_record
 from faitheval.logging_config import logger
@@ -12,7 +13,7 @@ def main(input_path, output_path, hallucination_log_path):
     scores = []
     hallucination_details = defaultdict(list)
 
-    for row in data:
+    for row in tqdm(data, desc="Processing rows"):
         current_q_id = row['question_id']
         logger.info(f"*** Processing question {current_q_id} ***")
         raw_score, hallucinations_for_row = score_record(row)

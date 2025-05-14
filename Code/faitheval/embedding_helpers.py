@@ -1,6 +1,6 @@
 import numpy as np
 from rag.utils import get_embedding_function, get_text_embedding
-from config.config import config
+from config.config import config_mini as config
 
 from faitheval.utils import _simplify
 

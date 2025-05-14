@@ -34,9 +34,9 @@ def score_record(record):
     
     hallucination_details_for_record = []
 
-    rag_triples, edge_idx_rag, adj_rag, rag_entities = prepare_rag_structures(rag_triples_raw)
+    simplified_rag_triples, edge_idx_rag, adj_rag, all_simplified_rag_entities_set, rag_entity_details = prepare_rag_structures(rag_triples_raw)
 
-    logger.info("rag_triples: %s", rag_triples)
+    logger.info("rag_triples: %s", simplified_rag_triples)
     logger.info("cot_triples: %s", cot_triples)
 
     triple_scores = []
@@ -45,8 +45,8 @@ def score_record(record):
         cot_triple_embd = embed_triple((s_cot_raw, rel_cot, t_cot_raw))
         cot_triple_raw = tuple((s_cot_raw, rel_cot, t_cot_raw))
 
-        source_entities_rag = fuzzy_match_entity(s_cot_raw, rag_entities)
-        target_entities_rag = fuzzy_match_entity(t_cot_raw, rag_entities)
+        source_entities_rag = fuzzy_match_entity(s_cot_raw, all_simplified_rag_entities_set, rag_entity_details, constants.STRICT_RAG_ENTITY_TYPES)
+        target_entities_rag = fuzzy_match_entity(t_cot_raw, all_simplified_rag_entities_set, rag_entity_details, constants.STRICT_RAG_ENTITY_TYPES)
 
         # For CoT triples with positive relations (standard)    
         if not is_negative_relation(rel_cot):
