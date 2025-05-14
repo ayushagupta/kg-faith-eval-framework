@@ -2,8 +2,10 @@ import argparse
 import json
 
 from tqdm import tqdm
+import traceback
 
-from config.config import config_llama
+from config.config import config_llama, config_mini
+from llm.openai_client import OpenAIClient
 from llm.groq_client import GroqClient
 from spoke.spoke_api_client import SpokeAPIClient
 from rag.rag import RAG
@@ -25,17 +27,22 @@ parser = argparse.ArgumentParser(description="Test run KG-RAG inference and save
 parser.add_argument('--output_path', type=str, required=True, help='Path to output test JSON')
 args = parser.parse_args()
 
-extraction_client = GroqClient(config=config_llama)
+extraction_client = OpenAIClient(config=config_mini)
 inference_client = GroqClient(config=config_llama)
 spoke_api_client = SpokeAPIClient()
 
-data = managed_load_dataset(data_len=2)
+data = managed_load_dataset()
+# only run for questions that can be tested against baseline
+with open("datasets/baseline.json") as file:
+    baseline = json.load(file)
+    baseline_qs_id = [info["question_id"] for info in baseline]
+    filtered_questions = [qs for qs in data["mcq"] if qs["question_id"] in baseline_qs_id ]
 
 rag = RAG(extraction_client, spoke_api_client, config_llama.CONTEXT_VOLUME, config_llama.QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD, config_llama.QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY)
 
 result = []
 
-for question in tqdm(data["mcq"]):
+for question in tqdm(filtered_questions):
     try:
         question_prompt = question["prompt"]
         context, context_tables = rag.retrieve(question_prompt)
@@ -60,6 +67,7 @@ for question in tqdm(data["mcq"]):
     except Exception as e:
         print(f"Error occured: {question['question_id']} - {question_prompt}: {e}")
         logger.info(f"Error occured: {question['question_id']} - {question_prompt}: {e}")
+        traceback.print_exc()
     
 
 print(f"Saving results to {args.output_path}")

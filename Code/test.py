@@ -26,16 +26,21 @@ parser.add_argument('--output_path', type=str, required=True, help='Path to outp
 args = parser.parse_args()
 
 extraction_client = OpenAIClient(config=config_mini)
-inference_client = OpenAIClient(config=config_mini)
+inference_client = OpenAIClient(config=config_4o)
 spoke_api_client = SpokeAPIClient()
 
-data = managed_load_dataset(data_len=2)
+data = managed_load_dataset()
+# only run for questions that can be tested against baseline
+with open("datasets/baseline.json") as file:
+    baseline = json.load(file)
+    baseline_qs_id = [data["question_id"] for data in baseline]
+    filtered_questions = [qs for qs in data["mcq"] if qs["question_id"] in baseline_qs_id ]
 
 rag = RAG(extraction_client, spoke_api_client, config_mini.CONTEXT_VOLUME, config_mini.QUESTION_VS_CONTEXT_SIMILARITY_PERCENTILE_THRESHOLD, config_mini.QUESTION_VS_CONTEXT_MINIMUM_SIMILARITY)
 
 result = []
 
-for question in tqdm(data["tf"]):
+for question in tqdm(filtered_questions):
     try:
         question_prompt = question["prompt"]
         context, context_tables = rag.retrieve(question_prompt)
@@ -52,7 +57,7 @@ for question in tqdm(data["tf"]):
             "question_id": question["question_id"],
             "question": question_prompt,
             "chain_of_thought": output["reasoning"],
-            "correct_answer": str(question["correct_answer"]).lower(),
+            "correct_answer": question["correct_answer"],
             "model_answer": output["answer"],
             "kg_rag": context_tuples
         }
