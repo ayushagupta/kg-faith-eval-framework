@@ -10,7 +10,7 @@ args = parser.parse_args()
 
 final_output = []
 
-with open("LLM-Reasoning-Benchmark/Code/datasets/context_tuples_mcq.json", "r") as f:
+with open("datasets/context_tuples_mcq.json", "r") as f:
     all_data = json.load(f)
         
     for data in all_data:
@@ -48,22 +48,16 @@ with open("LLM-Reasoning-Benchmark/Code/datasets/context_tuples_mcq.json", "r") 
                 valid = True
             if diseases:
                 for disease in diseases:
-                    cot_kg_input.append([gene, "ASSOCIATES", disease])
+                    cot_kg_input.append([disease, "ASSOCIATES", gene])
                 
                 if len(diseases) == 1:
                     if diseases[0] == disease1: 
-                        cot_kg_input.append([gene, "DOES NOT ASSOICATE", disease2])
+                        cot_kg_input.append([disease2, "DOES NOT ASSOCIATE", gene])
                     elif diseases[0] == disease2:
-                        cot_kg_input.append([gene, "DOES NOT ASSOCIATE", disease1])
+                        cot_kg_input.append([disease1, "DOES NOT ASSOCIATE", gene])
                 
-        print(gene_disease_relation)
-        print(cot_kg_input)
-        
-        # valid = False
-        
-        # # determine if info in context
-        # for key
-         
+        # print(gene_disease_relation)
+        # print(cot_kg_input)
         
         result = {
             "question_id": data["question_id"],
