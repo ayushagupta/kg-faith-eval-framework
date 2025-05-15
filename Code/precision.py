@@ -6,7 +6,7 @@ with open("datasets/baseline.json") as baseline_file:
     baseline = json.load(baseline_file)
     
 # update file name
-with open("../../faitheval_output_filtered.json") as output_file:
+with open("datasets/4o/faitheval_output_4o.json") as output_file:
     output = json.load(output_file)
     
 precision_result = []
@@ -23,7 +23,7 @@ for i in range(len(output)):
     
     precision = 0
     relevant = 0
-    retrieved = len(baseline_ctx)
+    retrieved = len(output_ctx)
     # b_ctx is a tuple
     for b_ctx in baseline_ctx:
         
@@ -68,17 +68,20 @@ for i in range(len(output)):
         # print(i, relevant, retrieved)
             
     print(relevant, retrieved, relevant / retrieved)
-    precision_result.append(relevant/retrieved)        
+    precision_result.append(relevant/retrieved)
+    
+    
+     
 
 
 # data = [1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 5, 5]
 
 # Plot histogram
-plt.hist(precision_result, bins=5, edgecolor='black')
+plt.hist(precision_result, bins=100, edgecolor='black')
 plt.title("Distribution of Data")
 plt.xlabel("Value")
 plt.ylabel("Frequency")
 plt.grid(True)
-plt.savefig("graphs/precison_dist_mini.png", dpi=300)  
+plt.savefig("graphs/precison_dist_4o.png", dpi=300)  
 # plt.show()
     

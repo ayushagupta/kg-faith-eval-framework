@@ -1,0 +1,813 @@
+{
+    "2": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "9": [],
+    "11": [],
+    "12": [],
+    "13": [],
+    "15": [],
+    "16": [],
+    "17": [],
+    "18": [],
+    "20": [],
+    "22": [],
+    "23": [],
+    "24": [],
+    "25": [
+        {
+            "cot_triple": [
+                "focal epilepsy",
+                "DOES NOT ASSOCIATE",
+                "CPS1"
+            ],
+            "retrieved_sources": [
+                "focal epilepsy"
+            ],
+            "retrieved_targets": [
+                "cps1"
+            ],
+            "similarity_to_positive_cot": 0.793,
+            "highest_sim_score": 0.793,
+            "reason": "Negative triple in CoT: Not exactly contradicted by path in KG: ([('focal epilepsy', 'ISA', 'epilepsy'), ('epilepsy', 'ASSOCIATES', 'cps1')])"
+        },
+        {
+            "cot_triple": [
+                "epilepsy",
+                "DOES NOT ASSOCIATE",
+                "CPS1"
+            ],
+            "retrieved_sources": [
+                "epilepsy"
+            ],
+            "retrieved_targets": [
+                "cps1"
+            ],
+            "similarity_to_positive_cot": 0.984,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('epilepsy', 'ASSOCIATES', 'cps1')])"
+        }
+    ],
+    "34": [],
+    "35": [],
+    "36": [],
+    "39": [],
+    "42": [],
+    "43": [],
+    "44": [],
+    "45": [
+        {
+            "cot_triple": [
+                "allergic rhinitis",
+                "DOES NOT ASSOCIATE",
+                "ABO"
+            ],
+            "retrieved_sources": [
+                "allergic rhinitis"
+            ],
+            "retrieved_targets": [
+                "abo"
+            ],
+            "similarity_to_positive_cot": 0.954,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('allergic rhinitis', 'ASSOCIATES', 'abo')])"
+        }
+    ],
+    "46": [],
+    "47": [],
+    "48": [],
+    "49": [],
+    "50": [],
+    "53": [],
+    "54": [],
+    "58": [
+        {
+            "cot_triple": [
+                "CASZ1",
+                "DOES NOT ASSOCIATE",
+                "kidney disease"
+            ],
+            "retrieved_sources": [
+                "casz1"
+            ],
+            "retrieved_targets": [
+                "kidney"
+            ],
+            "similarity_to_positive_cot": 0.927,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by direct edge in KG: (kidney, ASSOCIATES, casz1)"
+        }
+    ],
+    "62": [],
+    "63": [],
+    "64": [],
+    "65": [
+        {
+            "cot_triple": [
+                "lung carcinoma",
+                "DOES NOT ASSOCIATE",
+                "HLA-DQA1"
+            ],
+            "retrieved_sources": [
+                "lung carcinoma"
+            ],
+            "retrieved_targets": [
+                "hla dqa1"
+            ],
+            "similarity_to_positive_cot": 0.986,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('lung carcinoma', 'ASSOCIATES', 'hla dqa1')])"
+        }
+    ],
+    "69": [],
+    "71": [],
+    "72": [],
+    "75": [],
+    "76": [
+        {
+            "cot_triple": [
+                "GATA3",
+                "ASSOCIATES",
+                "Hodgkin's lymphoma, nodular sclerosis"
+            ],
+            "retrieved_sources": [
+                "gata3"
+            ],
+            "retrieved_targets": [
+                "hodgkin s lymphoma nodular sclerosis"
+            ],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        }
+    ],
+    "77": [],
+    "78": [],
+    "79": [],
+    "83": [
+        {
+            "cot_triple": [
+                "estrogen-receptor negative breast cancer",
+                "DOES NOT ASSOCIATE",
+                "BRCA2"
+            ],
+            "retrieved_sources": [
+                "estrogen receptor negative breast cancer"
+            ],
+            "retrieved_targets": [
+                "brca2"
+            ],
+            "similarity_to_positive_cot": 0.986,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('estrogen receptor negative breast cancer', 'ASSOCIATES', 'brca2')])"
+        }
+    ],
+    "84": [
+        {
+            "cot_triple": [
+                "lung adenocarcinoma",
+                "ASSOCIATES",
+                "increased STAT4"
+            ],
+            "retrieved_sources": [
+                "lung adenocarcinoma"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        },
+        {
+            "cot_triple": [
+                "central nervous system cancer",
+                "DOES NOT ASSOCIATE",
+                "BTNL2"
+            ],
+            "retrieved_sources": [
+                "central nervous system cancer"
+            ],
+            "retrieved_targets": [
+                "btnl2"
+            ],
+            "similarity_to_positive_cot": 0.499,
+            "highest_sim_score": 0.499,
+            "reason": "Negative triple in CoT: Not exactly contradicted by path in KG: ([('central nervous system cancer', 'RESEMBLES', 'lung non small cell carcinoma'), ('lung non small cell carcinoma', 'RESEMBLES', 'lung adenocarcinoma'), ('lung adenocarcinoma', 'ASSOCIATES', 'btnl2')])"
+        },
+        {
+            "cot_triple": [
+                "central nervous system cancer",
+                "ASSOCIATES",
+                "increased STAT4"
+            ],
+            "retrieved_sources": [
+                "central nervous system cancer"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        }
+    ],
+    "88": [],
+    "89": [],
+    "90": [],
+    "91": [],
+    "92": [],
+    "93": [],
+    "94": [],
+    "95": [],
+    "96": [],
+    "101": [
+        {
+            "cot_triple": [
+                "immunoglobulin alpha deficiency",
+                "DOES NOT ASSOCIATE",
+                "GATA3"
+            ],
+            "retrieved_sources": [
+                "immunoglobulin alpha deficiency"
+            ],
+            "retrieved_targets": [
+                "gata3"
+            ],
+            "similarity_to_positive_cot": 0.99,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('immunoglobulin alpha deficiency', 'ASSOCIATES', 'gata3')])"
+        }
+    ],
+    "102": [],
+    "103": [],
+    "104": [],
+    "106": [],
+    "107": [],
+    "108": [],
+    "110": [],
+    "111": [
+        {
+            "cot_triple": [
+                "autoimmune hepatitis",
+                "DOES NOT ASSOCIATE",
+                "HLA-DQB1"
+            ],
+            "retrieved_sources": [
+                "autoimmune hepatitis"
+            ],
+            "retrieved_targets": [
+                "hla dqb1"
+            ],
+            "similarity_to_positive_cot": 0.977,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('autoimmune hepatitis', 'ASSOCIATES', 'hla dqb1')])"
+        }
+    ],
+    "112": [],
+    "116": [],
+    "117": [
+        {
+            "cot_triple": [
+                "inflammatory bowel disease",
+                "DOES NOT ASSOCIATE",
+                "RORA"
+            ],
+            "retrieved_sources": [
+                "inflammatory bowel"
+            ],
+            "retrieved_targets": [
+                "rora"
+            ],
+            "similarity_to_positive_cot": 0.965,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('inflammatory bowel', 'ASSOCIATES', 'rora')])"
+        },
+        {
+            "cot_triple": [
+                "Crohn's disease",
+                "DOES NOT ASSOCIATE",
+                "RORA"
+            ],
+            "retrieved_sources": [
+                "crohn s"
+            ],
+            "retrieved_targets": [
+                "rora"
+            ],
+            "similarity_to_positive_cot": 0.642,
+            "highest_sim_score": 0.642,
+            "reason": "Negative triple in CoT: Not exactly contradicted by path in KG: ([('crohn s', 'ISA', 'inflammatory bowel'), ('inflammatory bowel', 'ASSOCIATES', 'rora')])"
+        }
+    ],
+    "119": [],
+    "120": [
+        {
+            "cot_triple": [
+                "myeloproliferative neoplasm",
+                "linked to",
+                "DOID:2226"
+            ],
+            "retrieved_sources": [
+                "myeloproliferative neoplasm"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        },
+        {
+            "cot_triple": [
+                "lung adenocarcinoma",
+                "linked to",
+                "DOID:3910"
+            ],
+            "retrieved_sources": [
+                "lung adenocarcinoma"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        }
+    ],
+    "121": [],
+    "123": [],
+    "124": [],
+    "125": [],
+    "126": [],
+    "127": [],
+    "128": [],
+    "131": [],
+    "133": [],
+    "136": [],
+    "138": [],
+    "139": [],
+    "141": [],
+    "142": [],
+    "145": [],
+    "148": [],
+    "151": [],
+    "155": [],
+    "156": [],
+    "157": [],
+    "158": [],
+    "159": [
+        {
+            "cot_triple": [
+                "cervix carcinoma",
+                "DOES NOT ASSOCIATE",
+                "HLA-DQA1"
+            ],
+            "retrieved_sources": [
+                "cervix carcinoma"
+            ],
+            "retrieved_targets": [
+                "hla dqa1"
+            ],
+            "similarity_to_positive_cot": 0.981,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('cervix carcinoma', 'ASSOCIATES', 'hla dqa1')])"
+        }
+    ],
+    "161": [
+        {
+            "cot_triple": [
+                "allergic rhinitis",
+                "DOES NOT ASSOCIATE",
+                "ATXN2"
+            ],
+            "retrieved_sources": [
+                "allergic rhinitis"
+            ],
+            "retrieved_targets": [
+                "atxn2"
+            ],
+            "similarity_to_positive_cot": 0.986,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('allergic rhinitis', 'ASSOCIATES', 'atxn2')])"
+        }
+    ],
+    "162": [],
+    "163": [],
+    "164": [],
+    "166": [],
+    "167": [],
+    "168": [],
+    "170": [],
+    "171": [
+        {
+            "cot_triple": [
+                "allergic rhinitis",
+                "DOES NOT ASSOCIATE",
+                "IL2RA"
+            ],
+            "retrieved_sources": [
+                "allergic rhinitis"
+            ],
+            "retrieved_targets": [
+                "il2ra"
+            ],
+            "similarity_to_positive_cot": 0.982,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('allergic rhinitis', 'ASSOCIATES', 'il2ra')])"
+        }
+    ],
+    "173": [],
+    "174": [],
+    "176": [],
+    "177": [],
+    "178": [
+        {
+            "cot_triple": [
+                "idiopathic pulmonary fibrosis",
+                "DOES NOT ASSOCIATE",
+                "STN1"
+            ],
+            "retrieved_sources": [
+                "idiopathic pulmonary fibrosis"
+            ],
+            "retrieved_targets": [
+                "stn1"
+            ],
+            "similarity_to_positive_cot": 0.979,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('idiopathic pulmonary fibrosis', 'ASSOCIATES', 'stn1')])"
+        }
+    ],
+    "179": [],
+    "180": [],
+    "185": [],
+    "187": [],
+    "188": [],
+    "191": [],
+    "192": [],
+    "194": [
+        {
+            "cot_triple": [
+                "pancreatic carcinoma",
+                "DOES NOT ASSOCIATE",
+                "TERT"
+            ],
+            "retrieved_sources": [
+                "pancreatic carcinoma"
+            ],
+            "retrieved_targets": [
+                "tert"
+            ],
+            "similarity_to_positive_cot": 0.967,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('pancreatic carcinoma', 'ASSOCIATES', 'tert')])"
+        }
+    ],
+    "195": [],
+    "197": [],
+    "198": [],
+    "200": [
+        {
+            "cot_triple": [
+                "ankylosing spondylitis",
+                "DOES NOT ASSOCIATE",
+                "TNRC18"
+            ],
+            "retrieved_sources": [
+                "ankylosing spondylitis"
+            ],
+            "retrieved_targets": [
+                "tnrc18"
+            ],
+            "similarity_to_positive_cot": 0.559,
+            "highest_sim_score": 0.559,
+            "reason": "Negative triple in CoT: Not exactly contradicted by path in KG: ([('ankylosing spondylitis', 'RESEMBLES', 'crohn s'), ('crohn s', 'ASSOCIATES', 'tnrc18')])"
+        },
+        {
+            "cot_triple": [
+                "Crohn's disease",
+                "DOES NOT ASSOCIATE",
+                "TNRC18"
+            ],
+            "retrieved_sources": [
+                "crohn s"
+            ],
+            "retrieved_targets": [
+                "tnrc18"
+            ],
+            "similarity_to_positive_cot": 0.866,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('crohn s', 'ASSOCIATES', 'tnrc18')])"
+        }
+    ],
+    "202": [],
+    "204": [],
+    "205": [],
+    "206": [
+        {
+            "cot_triple": [
+                "duodenal ulcer",
+                "DOES NOT ASSOCIATE",
+                "PSCA"
+            ],
+            "retrieved_sources": [
+                "duodenal ulcer"
+            ],
+            "retrieved_targets": [
+                "psca"
+            ],
+            "similarity_to_positive_cot": 0.954,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('duodenal ulcer', 'ASSOCIATES', 'psca')])"
+        }
+    ],
+    "207": [
+        {
+            "cot_triple": [
+                "TNRC18",
+                "DOES NOT ASSOCIATE",
+                "inflammatory bowel disease"
+            ],
+            "retrieved_sources": [
+                "tnrc18"
+            ],
+            "retrieved_targets": [
+                "inflammatory bowel"
+            ],
+            "similarity_to_positive_cot": 0.963,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by direct edge in KG: (inflammatory bowel, ASSOCIATES, tnrc18)"
+        }
+    ],
+    "208": [],
+    "209": [],
+    "212": [
+        {
+            "cot_triple": [
+                "central nervous system cancer",
+                "DOES NOT ASSOCIATE",
+                "TENM2"
+            ],
+            "retrieved_sources": [
+                "central nervous system cancer"
+            ],
+            "retrieved_targets": [
+                "tenm2"
+            ],
+            "similarity_to_positive_cot": 0.983,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('central nervous system cancer', 'ASSOCIATES', 'tenm2')])"
+        }
+    ],
+    "213": [
+        {
+            "cot_triple": [
+                "TERT",
+                "associated with",
+                "both central nervous system cancer and myeloproliferative neoplasm"
+            ],
+            "retrieved_sources": [
+                "tert"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        }
+    ],
+    "214": [
+        {
+            "cot_triple": [
+                "hypertrophic cardiomyopathy",
+                "DOES NOT ASSOCIATE",
+                "HLA-B"
+            ],
+            "retrieved_sources": [
+                "hypertrophic cardiomyopathy"
+            ],
+            "retrieved_targets": [
+                "hla b"
+            ],
+            "similarity_to_positive_cot": 0.982,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('hypertrophic cardiomyopathy', 'ASSOCIATES', 'hla b')])"
+        },
+        {
+            "cot_triple": [
+                "hypertrophic cardiomyopathy",
+                "DOES NOT ASSOCIATE",
+                "BRCA2"
+            ],
+            "retrieved_sources": [
+                "hypertrophic cardiomyopathy"
+            ],
+            "retrieved_targets": [
+                "brca2"
+            ],
+            "similarity_to_positive_cot": 0.984,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('hypertrophic cardiomyopathy', 'ASSOCIATES', 'brca2')])"
+        }
+    ],
+    "215": [],
+    "216": [],
+    "217": [],
+    "218": [],
+    "219": [],
+    "220": [],
+    "221": [
+        {
+            "cot_triple": [
+                "IL23R",
+                "IMPLICATED IN",
+                "immune response pathways"
+            ],
+            "retrieved_sources": [
+                "il23r"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        }
+    ],
+    "222": [
+        {
+            "cot_triple": [
+                "interstitial lung disease",
+                "DOES NOT ASSOCIATE",
+                "PTPN22"
+            ],
+            "retrieved_sources": [
+                "interstitial lung"
+            ],
+            "retrieved_targets": [
+                "ptpn22"
+            ],
+            "similarity_to_positive_cot": 0.982,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('interstitial lung', 'ASSOCIATES', 'ptpn22')])"
+        }
+    ],
+    "223": [],
+    "225": [],
+    "226": [],
+    "230": [],
+    "233": [],
+    "234": [],
+    "235": [],
+    "237": [
+        {
+            "cot_triple": [
+                "Sjogren's syndrome",
+                "DOES NOT ASSOCIATE",
+                "HLA-DQA1"
+            ],
+            "retrieved_sources": [
+                "sjogren s syndrome"
+            ],
+            "retrieved_targets": [
+                "hla dqa1"
+            ],
+            "similarity_to_positive_cot": 0.99,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('sjogren s syndrome', 'ASSOCIATES', 'hla dqa1')])"
+        }
+    ],
+    "239": [],
+    "240": [
+        {
+            "cot_triple": [
+                "Takayasu's arteritis",
+                "DOES NOT ASSOCIATE",
+                "HLA-DQB2"
+            ],
+            "retrieved_sources": [
+                "takayasu s arteritis"
+            ],
+            "retrieved_targets": [
+                "hla dqb2"
+            ],
+            "similarity_to_positive_cot": 0.978,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('takayasu s arteritis', 'ASSOCIATES', 'hla dqb2')])"
+        }
+    ],
+    "241": [],
+    "242": [],
+    "243": [],
+    "246": [],
+    "247": [],
+    "252": [],
+    "253": [],
+    "254": [],
+    "255": [],
+    "257": [],
+    "261": [],
+    "262": [],
+    "263": [],
+    "264": [],
+    "265": [],
+    "266": [],
+    "267": [],
+    "269": [],
+    "270": [],
+    "271": [],
+    "272": [],
+    "273": [],
+    "274": [
+        {
+            "cot_triple": [
+                "allergic rhinitis",
+                "DOES NOT ASSOCIATE",
+                "HLA-DQB1"
+            ],
+            "retrieved_sources": [
+                "allergic rhinitis"
+            ],
+            "retrieved_targets": [
+                "hla dqb1"
+            ],
+            "similarity_to_positive_cot": 0.984,
+            "highest_sim_score": 0.0,
+            "reason": "Negative triple in CoT: Contradicted by path in KG: ([('allergic rhinitis', 'ASSOCIATES', 'hla dqb1')])"
+        }
+    ],
+    "275": [],
+    "277": [],
+    "278": [
+        {
+            "cot_triple": [
+                "interstitial lung disease",
+                "DOES NOT ASSOCIATE",
+                "BRCA2"
+            ],
+            "retrieved_sources": [
+                "interstitial lung"
+            ],
+            "retrieved_targets": [
+                "brca2"
+            ],
+            "similarity_to_positive_cot": 0.602,
+            "highest_sim_score": 0.602,
+            "reason": "Negative triple in CoT: Not exactly contradicted by path in KG: ([('interstitial lung', 'RESEMBLES', 'lung small cell carcinoma'), ('lung small cell carcinoma', 'ISA', 'lung carcinoma'), ('lung carcinoma', 'ASSOCIATES', 'brca2')])"
+        }
+    ],
+    "279": [],
+    "282": [],
+    "284": [],
+    "286": [],
+    "287": [],
+    "289": [],
+    "290": [],
+    "291": [],
+    "296": [],
+    "299": [],
+    "300": [],
+    "301": [
+        {
+            "cot_triple": [
+                "lung carcinoma",
+                "ASSOCIATES",
+                "TP53"
+            ],
+            "retrieved_sources": [
+                "lung carcinoma"
+            ],
+            "retrieved_targets": [
+                "tp53"
+            ],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        },
+        {
+            "cot_triple": [
+                "TP53",
+                "MENTIONED IN",
+                "association with both diseases"
+            ],
+            "retrieved_sources": [
+                "tp53"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        },
+        {
+            "cot_triple": [
+                "TERT",
+                "MENTIONED IN",
+                "association with both diseases"
+            ],
+            "retrieved_sources": [
+                "tert"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        },
+        {
+            "cot_triple": [
+                "TERT",
+                "IS",
+                "correct option"
+            ],
+            "retrieved_sources": [
+                "tert"
+            ],
+            "retrieved_targets": [],
+            "highest_sim_score": 0.0,
+            "reason": "No supporting evidence found in KG for positive CoT triple"
+        }
+    ],
+    "302": [],
+    "304": []
+}

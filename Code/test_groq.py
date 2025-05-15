@@ -42,7 +42,7 @@ rag = RAG(extraction_client, spoke_api_client, config_llama.CONTEXT_VOLUME, conf
 
 result = []
 
-for question in tqdm(filtered_questions):
+for question in tqdm([filtered_questions[83]]):
     try:
         question_prompt = question["prompt"]
         context, context_tables = rag.retrieve(question_prompt)
@@ -54,6 +54,8 @@ for question in tqdm(filtered_questions):
         system_prompt = get_system_prompt(task="mcq_question_cot_1")
         text_data = load_task_schema(task="mcq_question_cot")
         output = inference_client.generate_json_response(instructions=system_prompt, input_text=enriched_prompt, text_data=text_data)
+        
+        print(output)
         
         final_output = {
             "question_id": question["question_id"],
