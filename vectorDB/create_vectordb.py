@@ -2,15 +2,15 @@ import pickle
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from config.config import config
+from config.config import config_mini
 from tqdm import tqdm
 
-data_path = config.VECTOR_DB_DISEASE_ENTITY_PATH
-vector_db_name = config.VECTOR_DB_PATH
-chunk_size = config.VECTOR_DB_CHUNK_SIZE
-chunk_overlap = config.VECTOR_DB_CHUNK_OVERLAP
-batch_size = config.VECTOR_DB_BATCH_SIZE
-sentence_embedding_model = config.VECTOR_DB_SENTENCE_EMBEDDING_MODEL
+data_path = config_mini.VECTOR_DB_DISEASE_ENTITY_PATH
+vector_db_name = config_mini.VECTOR_DB_PATH
+chunk_size = config_mini.VECTOR_DB_CHUNK_SIZE
+chunk_overlap = config_mini.VECTOR_DB_CHUNK_OVERLAP
+batch_size = config_mini.VECTOR_DB_BATCH_SIZE
+sentence_embedding_model = config_mini.VECTOR_DB_SENTENCE_EMBEDDING_MODEL
 
 def load_data():
     with open(data_path, "rb") as f:

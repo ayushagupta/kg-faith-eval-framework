@@ -1,4 +1,4 @@
-from config.config import config
+from config.config import config_mini
 import os
 from vectorDB.create_vectordb import create_vector_db, create_vector_db_no_batching
 import time
@@ -9,7 +9,7 @@ if not os.path.exists("logs"):
     
 
 try:
-    if os.path.exists(config.VECTOR_DB_PATH):
+    if os.path.exists(config_mini.VECTOR_DB_PATH):
         print("VectorDB already exists.")
     else:
         start_time = time.time()
